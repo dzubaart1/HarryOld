@@ -18,7 +18,12 @@ namespace HarryPoter.Core
         public static void Initialize()
         {
             Behaviour = new GameObject("RuntimeBehaviour", typeof(RuntimeBehaviour)).GetComponent<RuntimeBehaviour>();
+
+            InputService inputService = new InputService(GetConfiguration<InputConfiguration>());
             
+            _services.Add(typeof(InputService), inputService);
+            _services.Add(typeof(GestureService), new GestureService(GetConfiguration<GestureConfiguration>(), inputService));
+            _services.Add(typeof(WandService), new WandService());
 
             foreach(var pair in _services)
             {

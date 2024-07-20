@@ -5,12 +5,7 @@ namespace HarryPoter.Core
 {
     public class WandService : IService
     {
-        public WandConfiguration Configuration { get; private set; }
-        
-        public WandService(WandConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Wand CurrentWand { get; private set; }
         
         public Task Initialize()
         {
@@ -21,9 +16,15 @@ namespace HarryPoter.Core
         {
         }
 
-        public void SpawnWand(Vector3 pos)
+        public void SetWand(Wand wand)
         {
-            Object.Instantiate(Configuration.Wand, pos, Quaternion.identity);
+            if (CurrentWand != null)
+            {
+                Object.Destroy(CurrentWand.gameObject);
+                CurrentWand = null;
+            }
+            
+            CurrentWand = wand;
         }
     }
 }
