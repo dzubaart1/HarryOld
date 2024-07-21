@@ -5,7 +5,7 @@ namespace HarryPoter.Core
 {
     public class WandSpawner : MonoBehaviour
     {
-        private const float WAND_SPAWN_OFFSET = 1f;
+        private const float WAND_SPAWN_OFFSET = 0.5f;
         
         [SerializeField] private Wand _wandPrefab;
 

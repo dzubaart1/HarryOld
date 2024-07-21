@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1edeb02574458889a9c7b8c2e6306c, type: 3}
   m_Name: InputConfiguration
   m_EditorClassIdentifier: 
-  Player: {fileID: 6587012727150900456, guid: dbb58afb79f4ccd49906e9c20cd0cd28, type: 3}
+  Player: {fileID: -4773258860591304310, guid: dbb58afb79f4ccd49906e9c20cd0cd28, type: 3}
   StartPos: {x: 0, y: 0, z: 0}

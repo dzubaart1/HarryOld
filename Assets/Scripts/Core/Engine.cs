@@ -24,6 +24,7 @@ namespace HarryPoter.Core
             _services.Add(typeof(InputService), inputService);
             _services.Add(typeof(GestureService), new GestureService(GetConfiguration<GestureConfiguration>(), inputService));
             _services.Add(typeof(WandService), new WandService());
+            _services.Add(typeof(PointingService), new PointingService(GetConfiguration<PointingConfiguration>()));
 
             foreach(var pair in _services)
             {
