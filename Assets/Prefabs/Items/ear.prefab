@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 3617748983700439530}
   - component: {fileID: 8294362638477698876}
   - component: {fileID: 499371414933814892}
+  - component: {fileID: 2773673133581819106}
   m_Layer: 0
   m_Name: Ear
   m_TagString: Untagged
@@ -197,7 +198,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
@@ -285,6 +286,19 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 0
   _handGrabPoses: []
+--- !u!114 &2773673133581819106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031413419831294155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36d21128ad648c5a7d88bb57d298b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listItem: 2
 --- !u!1 &6119245927917995881
 GameObject:
   m_ObjectHideFlags: 0

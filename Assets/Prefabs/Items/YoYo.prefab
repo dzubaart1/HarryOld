@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 1528304371617213384}
   - component: {fileID: 8837793680791463920}
   - component: {fileID: 7584463782910234798}
+  - component: {fileID: 401689711020395216}
   m_Layer: 0
   m_Name: YoYo
   m_TagString: Replaceable
@@ -228,7 +229,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
@@ -433,6 +434,19 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 0
   _handGrabPoses: []
+--- !u!114 &401689711020395216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386910211476449480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36d21128ad648c5a7d88bb57d298b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listItem: 0
 --- !u!1 &5277624128319982849
 GameObject:
   m_ObjectHideFlags: 0

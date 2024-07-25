@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6327310897462459847}
   - component: {fileID: 736053673334609522}
   - component: {fileID: 7449769654470603807}
+  - component: {fileID: 8684729086711321728}
   m_Layer: 0
   m_Name: Pawn3
   m_TagString: Replaceable
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4935079322903970720}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.475, y: 2.1949, z: 1.1849}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
@@ -147,6 +148,20 @@ MonoBehaviour:
   _rigidbody: {fileID: 3001310394058702864}
   _kinematicWhileSelected: 1
   _throwWhenUnselected: 1
+--- !u!114 &8684729086711321728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935079322903970720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e611f873c6914315b9ab07515ca47d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _puzzleItemType: 2
+  _collider: {fileID: 6327310897462459847}
 --- !u!1 &6851227610017783440
 GameObject:
   m_ObjectHideFlags: 0

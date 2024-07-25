@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: InputConfiguration
   m_EditorClassIdentifier: 
   Player: {fileID: -4773258860591304310, guid: dbb58afb79f4ccd49906e9c20cd0cd28, type: 3}
-  StartPos: {x: 0, y: 0, z: 0}
+  StartPos: {x: 2, y: 0.5, z: -0.4}
