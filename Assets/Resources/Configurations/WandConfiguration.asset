@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97898a4cb32422ead8d0b98b70f0aac, type: 3}
+  m_Name: WandConfiguration
+  m_EditorClassIdentifier: 
+  GestureTextAssets:
+  - {fileID: 4900000, guid: 6f90fc7c75dfcb84db5090eab30d1a9f, type: 3}
+  - {fileID: 4900000, guid: 29fd2f9a44254db4981f9cf6c1644bb1, type: 3}
+  - {fileID: 4900000, guid: 66d87a5ae5d10634696592b0b9b98859, type: 3}
+  - {fileID: 4900000, guid: 06e671479cf842a48b38a2b9de9d56d0, type: 3}
+  - {fileID: 4900000, guid: cf1cc35ea55ecca4a82af19693d58bde, type: 3}
+  - {fileID: 4900000, guid: 1ddf9f1c7ac98d54d93dbe8e0d29eb15, type: 3}
+  - {fileID: 4900000, guid: ab3eced8d69c7964483fcecf755defd5, type: 3}
+  - {fileID: 4900000, guid: 0c47a6a7837342246ad7702883369f67, type: 3}
+  - {fileID: 4900000, guid: 6e763ef3cb4bb3d4086542c153ddb30a, type: 3}
+  - {fileID: 4900000, guid: 95cf5f18c516a8f40b87927ec591fa3c, type: 3}
+  - {fileID: 4900000, guid: 3b264af28900b0b42a5eb0980a5747a7, type: 3}
+  - {fileID: 4900000, guid: 0e28de98d12e477448ec3a2d6b290dbd, type: 3}
+  - {fileID: 4900000, guid: cae0797d36c861e429557a29113dd654, type: 3}
+  - {fileID: 4900000, guid: 53df91bfd2bedf84bbbcee393b778bb8, type: 3}
+  - {fileID: 4900000, guid: 373ec1eac620fe64e95f7c97a23bbb40, type: 3}
+  - {fileID: 4900000, guid: b7bb02c11df443f4097952e430a2f28b, type: 3}
+  - {fileID: 4900000, guid: a7146806954204143b7f72c5e4d61fe2, type: 3}
+  - {fileID: 4900000, guid: b81614adf379e1d4dbeb048dd32076a0, type: 3}
+  IsWritingNewSpells: 0
+  SpellName: 

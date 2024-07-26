@@ -35,6 +35,7 @@ namespace HarryPoter.Core
             {
                 EHand.Left => _leftHand,
                 EHand.Right => _rightHand,
+                _ => _leftHand
             };
         }
 
@@ -44,6 +45,7 @@ namespace HarryPoter.Core
             {
                 EHand.Left => _leftFingerFeatures,
                 EHand.Right => _rightFingerFeatures,
+                _ => _rightFingerFeatures
             };
         }
         
@@ -53,6 +55,7 @@ namespace HarryPoter.Core
             {
                 EHand.Left => _leftTransformFeatures,
                 EHand.Right => _rightTransformFeatures,
+                _ => _leftTransformFeatures
             };
         }
     }

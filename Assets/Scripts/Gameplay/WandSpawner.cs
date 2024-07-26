@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HarryPoter.Core
 {
@@ -17,16 +19,18 @@ namespace HarryPoter.Core
         {
             _wandService = Engine.GetService<WandService>();
             _player = Engine.GetService<InputService>().Player.transform;
-            
             _wandGestures = Engine.GetService<GestureService>().GetConfigsByType(GestureService.EGesture.Wand);
+        }
 
+        private void OnEnable()
+        {
             foreach (var gesture in _wandGestures)
             {
                 gesture.Selector.WhenSelected += SpawnWand;
             }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             foreach (var gesture in _wandGestures)
             {

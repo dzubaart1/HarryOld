@@ -17,7 +17,11 @@ public class WandDrawing : MonoBehaviour
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private HandGrabInteractable _grabInteractable;
 
-    private PointingService _pointingService;
+    [Space]
+    [Header("Others")]
+    public bool IsDrawing = true;
+
+    private WandService _wandService;
     
     private Vector3 _prevWandEndPos;
     private float _lastAddedPointTime;
@@ -28,7 +32,7 @@ public class WandDrawing : MonoBehaviour
     {
         _prevWandEndPos = _wandEnd.position;
 
-        _pointingService = Engine.GetService<PointingService>();
+        _wandService = Engine.GetService<WandService>();
     }
 
     private void Update()
@@ -50,11 +54,9 @@ public class WandDrawing : MonoBehaviour
     {
         Debug.Log("FINISH DRAWING!");
 
-        Result res = _pointingService.Recognize(_linePoints);
+        _wandService.Recognize(_linePoints);
         _linePoints.Clear();
         _lineRenderer.positionCount = 0;
-        
-        Debug.Log("RECOGNIZE: " + res.GestureClass + "; " + res.Score);
     }
 
     private void AddNewPoint(Vector3 newPoint)

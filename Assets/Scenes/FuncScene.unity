@@ -40431,7 +40431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6daa4345f0e40cba1a5433c87b05c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wandPrefab: {fileID: 5221838442933532856, guid: a56ccad3ebae3904394f384c7e2c25cb, type: 3}
+  _wandPrefab: {fileID: 3613334520605108226, guid: a56ccad3ebae3904394f384c7e2c25cb, type: 3}
 --- !u!4 &1120862088
 Transform:
   m_ObjectHideFlags: 0
@@ -59916,14 +59916,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627532244}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 783649704}
   - {fileID: 2045332484}
-  m_Father: {fileID: 1806091871}
+  m_Father: {fileID: 1860641273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629605956
 GameObject:
@@ -70346,7 +70346,6 @@ Transform:
   - {fileID: 741899760}
   - {fileID: 587962002}
   - {fileID: 2058231870}
-  - {fileID: 1627532245}
   - {fileID: 1264251735}
   - {fileID: 278969696}
   - {fileID: 2006084011}
@@ -71816,6 +71815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1627532245}
   - {fileID: 801838407}
   - {fileID: 1365290115}
   - {fileID: 1166451135}
