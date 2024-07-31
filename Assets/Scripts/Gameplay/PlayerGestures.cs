@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class GestureService : IService
+    public class PlayerGestures : MonoBehaviour
     {
         public enum EGesture
         {
@@ -16,27 +16,23 @@ namespace HarryPoter.Core
             Wand
         }
         
-        public GestureConfiguration Configuration { get; private set; }
+        [Serializable]
+        public struct GestureConfig
+        {
+            [HideInInspector] public ActiveStateGroup Group;
+            public ActiveStateSelector Selector;
+            public EGesture GestureType;
+            public Player.EHand Hand;
+        }
 
-        public IReadOnlyCollection<GestureConfiguration.GestureConfig> Gestures
-        {
-            get
-            {
-                return _gestures;
-            }
-        }
+        [SerializeField] private List<GestureConfig> _gesturePrefabs;
+        [SerializeField] private Player _player;
         
-        private List<GestureConfiguration.GestureConfig> _gestures = new List<GestureConfiguration.GestureConfig>();
-        private Player _player;
-        public GestureService(GestureConfiguration configuration, InputService inputService)
+        private List<GestureConfig> _gestures = new List<GestureConfig>();
+
+        private void Awake()
         {
-            _player = inputService.Player;
-            Configuration = configuration;
-        }
-        
-        public Task Initialize()
-        {
-            foreach (var gesture in Configuration.Gestures)
+            foreach (var gesture in _gesturePrefabs)
             {
                 GameObject obj = Engine.Instantiate(gesture.Selector.gameObject);
                 
@@ -66,23 +62,18 @@ namespace HarryPoter.Core
                     transformFeatureStateProviderRef.InjectTransformFeatureStateProvider(_player.GetTransformFeatureByType(gesture.Hand));
                 }
                 
-                _gestures.Add(new GestureConfiguration.GestureConfig()
+                _gestures.Add(new GestureConfig()
                 {
                     GestureType = gesture.GestureType,
-                    Selector = obj.GetComponent<ActiveStateSelector>()
+                    Selector = obj.GetComponent<ActiveStateSelector>(),
+                    Group = obj.GetComponent<ActiveStateGroup>()
                 });
             }
-            
-            return Task.CompletedTask;
         }
-
-        public void Destroy()
+        
+        public List<GestureConfig> GetConfigsByType(EGesture gestureType)
         {
-        }
-
-        public List<GestureConfiguration.GestureConfig> GetConfigsByType(EGesture gestureType)
-        {
-            List<GestureConfiguration.GestureConfig> res = new List<GestureConfiguration.GestureConfig>();
+            List<GestureConfig> res = new List<GestureConfig>();
             
             foreach (var gesture in _gestures)
             {

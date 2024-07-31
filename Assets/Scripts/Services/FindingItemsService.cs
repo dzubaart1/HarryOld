@@ -19,17 +19,7 @@ namespace HarryPoter.Core
         public event Action EndListEvent;
         public event Action<EListItem> CheckInListItemEvent; 
         
-        private int _items;
-        
-        public Task Initialize()
-        {
-            _items = (1 << 7) - 1;
-            return Task.CompletedTask;
-        }
-
-        public void Destroy()
-        {
-        }
+        private int _items = (1 << 7) - 1;
 
         public void CheckIn(EListItem listItem)
         {
@@ -40,6 +30,14 @@ namespace HarryPoter.Core
             {
                 EndListEvent?.Invoke();
             }
+        }
+
+        public void Initialize()
+        {
+        }
+
+        public void Destroy()
+        {
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HarryPoter.Core
 {
@@ -11,12 +10,11 @@ namespace HarryPoter.Core
         public InputService(InputConfiguration configuration)
         {
             Configuration = configuration;
-            SpawnPlayer();
         }
         
-        public Task Initialize()
+        public void Initialize()
         {
-            return Task.CompletedTask;
+            SpawnPlayer();
         }
 
         public void Destroy()

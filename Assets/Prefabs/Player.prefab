@@ -144,6 +144,10 @@ GameObject:
   - component: {fileID: 834154824485584680}
   - component: {fileID: 874977728128182133}
   - component: {fileID: -4773258860591304310}
+  - component: {fileID: 6432153089141949121}
+  - component: {fileID: 4691539796644070977}
+  - component: {fileID: 8666403565923410454}
+  - component: {fileID: 291532259038716557}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -289,12 +293,109 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hmd: {fileID: 4570871198744380622}
-  _rightHand: {fileID: 5706585918878668866}
-  _leftHand: {fileID: 8243717050535282427}
+  _rightHand: {fileID: 8243717050535282427}
+  _leftHand: {fileID: 5706585918878668866}
   _leftFingerFeatures: {fileID: 3420278197508166898}
   _rightFingerFeatures: {fileID: 1126707977091625335}
   _leftTransformFeatures: {fileID: 6580106471696852220}
   _rightTransformFeatures: {fileID: 9110042207294976836}
+  _centerEye: {fileID: 6658861634435446148}
+  _playerGestures: {fileID: 6432153089141949121}
+  _characterController: {fileID: 8666403565923410454}
+--- !u!114 &6432153089141949121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566903290862805814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51c1569a43045279c7dc6a015e91fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gesturePrefabs:
+  - Group: {fileID: 3645829608643650127, guid: b340b300b6838494bb0eaab9a6fce34e, type: 3}
+    Selector: {fileID: 5953539253703203379, guid: b340b300b6838494bb0eaab9a6fce34e, type: 3}
+    GestureType: 2
+    Hand: 1
+  - Group: {fileID: 7133187018040081957, guid: 73bb8d1d1d6a64a44a3b570b245e664d, type: 3}
+    Selector: {fileID: 588664590077198756, guid: 73bb8d1d1d6a64a44a3b570b245e664d, type: 3}
+    GestureType: 2
+    Hand: 0
+  - Group: {fileID: 4201405853060412141, guid: 474a36acce2eefc448639c2132dc9a6a, type: 3}
+    Selector: {fileID: 9075437483706706813, guid: 474a36acce2eefc448639c2132dc9a6a, type: 3}
+    GestureType: 0
+    Hand: 1
+  _player: {fileID: -4773258860591304310}
+--- !u!114 &4691539796644070977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566903290862805814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fa09d0d68144f6ab6ce09300678de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: -4773258860591304310}
+  _speed: 12
+--- !u!143 &8666403565923410454
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566903290862805814}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 0.5
+  m_Radius: 0.15
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &291532259038716557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566903290862805814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0950df82e7936c84983497630bde5b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Acceleration: 0.1
+  Damping: 0.3
+  BackAndSideDampen: 0.5
+  JumpForce: 0.3
+  RotationAmount: 1.5
+  RotationRatchet: 45
+  SnapRotation: 1
+  RotateAroundGuardianCenter: 0
+  FixedSpeedSteps: 0
+  HmdResetsY: 1
+  HmdRotatesY: 1
+  GravityModifier: 0.379
+  useProfileData: 1
+  EnableLinearMovement: 1
+  EnableRotation: 1
+  RotationEitherThumbstick: 0
 --- !u!1 &2862412991711400235
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,7 @@ MonoBehaviour:
   _wandEnd: {fileID: 7713931181857312016}
   _lineRenderer: {fileID: 4878660875024665029}
   _grabInteractable: {fileID: 1564100776266789079}
+  _wand: {fileID: 3613334520605108226}
 --- !u!120 &4878660875024665029
 LineRenderer:
   serializedVersion: 2
@@ -326,8 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b362bce2a555429fa00e0c707c1e81f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wandDrawing: {fileID: 7088285859423472160}
-  _wandSpell: {fileID: 1288187045761347447}
+  IsBusy: 0
 --- !u!1 &6340350325218700487
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   _selectLineRender: {fileID: 3855234050872876088}
   _wrongMaterial: {fileID: 2100000, guid: a2f4511a3a0402b40bbe463359686057, type: 2}
   _correctMaterial: {fileID: 2100000, guid: 5f40f2f73fbda274b8a0e85a17abdb35, type: 2}
+  _wand: {fileID: 3613334520605108226}
 --- !u!120 &3855234050872876088
 LineRenderer:
   serializedVersion: 2
@@ -688,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c41c704cb160d054d8866891f0c6cbe1, type: 3}
       propertyPath: m_Name
       value: Content
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c41c704cb160d054d8866891f0c6cbe1, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

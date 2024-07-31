@@ -21,6 +21,30 @@ namespace HarryPoter.Core
             }
         }
 
+        public PlayerGestures PlayerGestures
+        {
+            get
+            {
+                return _playerGestures;
+            }
+        }
+
+        public Transform CenterEye
+        {
+            get
+            {
+                return _centerEye;
+            }
+        }
+
+        public CharacterController CharacterController
+        {
+            get
+            {
+                return _characterController;
+            }
+        }
+        
         [SerializeField] private Hmd _hmd;
         [SerializeField] private Hand _rightHand;
         [SerializeField] private Hand _leftHand;
@@ -28,6 +52,9 @@ namespace HarryPoter.Core
         [SerializeField] private FingerFeatureStateProvider _rightFingerFeatures;
         [SerializeField] private TransformFeatureStateProvider _leftTransformFeatures;
         [SerializeField] private TransformFeatureStateProvider _rightTransformFeatures;
+        [SerializeField] private Transform _centerEye;
+        [SerializeField] private PlayerGestures _playerGestures;
+        [SerializeField] private CharacterController _characterController;
 
         public Hand GetHandByType(EHand hand)
         {

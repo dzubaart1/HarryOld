@@ -16,10 +16,7 @@ public class WandDrawing : MonoBehaviour
     [SerializeField] private Transform _wandEnd;
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private HandGrabInteractable _grabInteractable;
-
-    [Space]
-    [Header("Others")]
-    public bool IsDrawing = true;
+    [SerializeField] private Wand _wand;
 
     private WandService _wandService;
     
@@ -37,6 +34,11 @@ public class WandDrawing : MonoBehaviour
 
     private void Update()
     {
+        if (_wand.IsBusy)
+        {
+            return;
+        }
+        
         if ((_wandEnd.position - _prevWandEndPos).sqrMagnitude > _sensitive & _grabInteractable.State == InteractableState.Select)
         {
             _isFinished = false;
@@ -52,8 +54,6 @@ public class WandDrawing : MonoBehaviour
 
     private void FinishDrawing()
     {
-        Debug.Log("FINISH DRAWING!");
-
         _wandService.Recognize(_linePoints);
         _linePoints.Clear();
         _lineRenderer.positionCount = 0;
@@ -61,7 +61,6 @@ public class WandDrawing : MonoBehaviour
 
     private void AddNewPoint(Vector3 newPoint)
     {
-        Debug.Log("ADD NEW POINT!");
         _lastAddedPointTime = Time.time;
         
         _linePoints.Add(ConvertVector3ToPoint(newPoint));

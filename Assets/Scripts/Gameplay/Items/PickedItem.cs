@@ -1,5 +1,4 @@
-﻿using System;
-using Oculus.Interaction;
+﻿using Oculus.Interaction;
 using UnityEngine;
 
 namespace HarryPoter.Core

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace HarryPoter.Core
@@ -7,6 +6,8 @@ namespace HarryPoter.Core
     public class Puzzle : MonoBehaviour
     {
         [SerializeField] private List<PuzzlePart> _puzzleParts;
+        [SerializeField] private Quest _quest;
+        [SerializeField] private GameObject _top;
 
         private int _puzzleItems;
 
@@ -43,6 +44,8 @@ namespace HarryPoter.Core
         private void CompletePuzzle()
         {
             Debug.Log("Complete puzzle!");
+            _top.gameObject.SetActive(false);
+            _quest.Complete();
         }
     }
 }

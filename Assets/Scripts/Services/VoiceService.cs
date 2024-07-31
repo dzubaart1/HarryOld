@@ -1,12 +1,9 @@
-﻿using System.Threading.Tasks;
-
-namespace HarryPoter.Core
+﻿namespace HarryPoter.Core
 {
     public class VoiceService : IService
     {
-        public Task Initialize()
+        public void Initialize()
         {
-            return Task.CompletedTask;
         }
 
         public void Destroy()

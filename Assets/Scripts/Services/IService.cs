@@ -4,7 +4,8 @@ namespace HarryPoter.Core
 {
     public interface IService
     {
-        public Task Initialize();
+
+        public void Initialize();
         public void Destroy();
     }
 }

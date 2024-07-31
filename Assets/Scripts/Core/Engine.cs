@@ -22,7 +22,6 @@ namespace HarryPoter.Core
             InputService inputService = new InputService(GetConfiguration<InputConfiguration>());
             
             _services.Add(typeof(InputService), inputService);
-            _services.Add(typeof(GestureService), new GestureService(GetConfiguration<GestureConfiguration>(), inputService));
             _services.Add(typeof(WandService), new WandService(GetConfiguration<WandConfiguration>()));
             _services.Add(typeof(FindingItemsService), new FindingItemsService());
 

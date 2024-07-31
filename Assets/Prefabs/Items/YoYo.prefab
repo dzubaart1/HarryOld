@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9208958774466780929}
   - component: {fileID: 8696113181961968194}
   - component: {fileID: 7522060459029759800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4792435504331310888}
   - component: {fileID: 6209373973772779521}
   - component: {fileID: 6029274288795213407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8837793680791463920}
   - component: {fileID: 7584463782910234798}
   - component: {fileID: 401689711020395216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: YoYo
   m_TagString: Replaceable
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 4020603791518830302}
   - component: {fileID: 1014203136554490791}
   - component: {fileID: 4872813705279875052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 2975067158856877697}
   - component: {fileID: 7525866295197719044}
   - component: {fileID: 8469714923522790567}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927393223112914569}
   - component: {fileID: 2400939099456276197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: nit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7470543399782686933}
   - component: {fileID: 6378941864429605452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}

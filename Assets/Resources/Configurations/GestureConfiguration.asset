@@ -19,3 +19,6 @@ MonoBehaviour:
   - Selector: {fileID: 588664590077198756, guid: 73bb8d1d1d6a64a44a3b570b245e664d, type: 3}
     GestureType: 2
     Hand: 0
+  - Selector: {fileID: 4273359361894416417, guid: dd78d74d365cd0540af3c9b8e4d225f4, type: 3}
+    GestureType: 0
+    Hand: 1

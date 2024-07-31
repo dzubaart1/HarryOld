@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HarryPoter.Core
 {
     public class WandSpawner : MonoBehaviour
     {
-        private const float WAND_SPAWN_OFFSET = 0.5f;
+        private const float WAND_SPAWN_OFFSET = 0.3f;
         
         [SerializeField] private Wand _wandPrefab;
 
         private WandService _wandService;
-        private Transform _player;
-        private List<GestureConfiguration.GestureConfig> _wandGestures;
+        private Transform _centerEye;
+        private List<PlayerGestures.GestureConfig> _wandGestures;
         
         private void Awake()
         {
             _wandService = Engine.GetService<WandService>();
-            _player = Engine.GetService<InputService>().Player.transform;
-            _wandGestures = Engine.GetService<GestureService>().GetConfigsByType(GestureService.EGesture.Wand);
+
+            Player player = Engine.GetService<InputService>().Player;
+            _centerEye = player.CenterEye;
+            _wandGestures = player.PlayerGestures.GetConfigsByType(PlayerGestures.EGesture.Wand);
         }
 
         private void OnEnable()
@@ -42,20 +42,20 @@ namespace HarryPoter.Core
         {
             if (_wandService.CurrentWand != null)
             {
-                Debug.Log("Teleport Wand!");
                 _wandService.CurrentWand.transform.position = CalcWandSpawnPoint();
                 return;
             }
-            
-            Debug.Log("Spawn Wand!");
+
             Wand wand = Engine.Instantiate(_wandPrefab);
             wand.transform.position = CalcWandSpawnPoint();
+            wand.transform.rotation = Quaternion.LookRotation(Vector3.up);
+            
             _wandService.SetWand(wand);
         }
 
         private Vector3 CalcWandSpawnPoint()
         {
-            return _player.position + _player.forward * WAND_SPAWN_OFFSET + _player.transform.up;
+            return _centerEye.position + _centerEye.forward * WAND_SPAWN_OFFSET + _centerEye.transform.up;
         }
     }
 }
