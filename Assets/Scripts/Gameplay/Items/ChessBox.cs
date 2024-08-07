@@ -1,16 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using Gameplay.Quests;
+using UnityEngine;
 
 namespace HarryPoter.Core
 {
     public class ChessBox : MonoBehaviour
     {
-        [SerializeField] private Quest _quest;
         [SerializeField] private Animation _animation;
-        
-        public void Complete()
+        [SerializeField] private TriggerQuest _triggerQuest;
+
+        private void OnEnable()
+        {
+            _triggerQuest.OnCompleteEvent += OnComplete;
+        }
+
+        private void OnDisable()
+        {
+            _triggerQuest.OnCompleteEvent -= OnComplete;
+        }
+
+        public void OnComplete()
         {
             _animation.Play();
-            _quest.Complete();
         }
     }
 }

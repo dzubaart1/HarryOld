@@ -5,15 +5,18 @@ namespace HarryPoter.Core
 {
     public class Puzzle : MonoBehaviour
     {
+        [Header("Refs")]
         [SerializeField] private List<PuzzlePart> _puzzleParts;
-        [SerializeField] private Quest _quest;
         [SerializeField] private GameObject _top;
-
+        [SerializeField] private ParticleSystem _doneParticleSystem;
+        [SerializeField] private GameObject _gift;
+        
         private int _puzzleItems;
 
         private void Awake()
         {
             _puzzleItems = (1 << _puzzleParts.Count) - 1;
+            _gift.gameObject.SetActive(false);
         }
 
         private void OnEnable()
@@ -43,9 +46,10 @@ namespace HarryPoter.Core
 
         private void CompletePuzzle()
         {
-            Debug.Log("Complete puzzle!");
+            _doneParticleSystem.Play();
+            
             _top.gameObject.SetActive(false);
-            _quest.Complete();
+            _gift.gameObject.SetActive(true);
         }
     }
 }

@@ -1,24 +1,22 @@
 using HarryPoter.Core;
-using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviour, ISpellable
 {
-    [SerializeField] private Grabbable _grabbable;
-    [SerializeField] private Quest _quest;
-
-    private void OnEnable()
+    [SerializeField] private HandGrabInteractable _grabInteractable;
+    
+    public void OnOpenSpell()
     {
-        _grabbable.WhenPointerEventRaised += OnSelected;
+        Debug.Log("OPEN SPELL CHESS");
+        _grabInteractable.enabled = true;
     }
 
-    private void OnDisable()
+    public void OnAttackSpell()
     {
-        _grabbable.WhenPointerEventRaised -= OnSelected;
     }
 
-    private void OnSelected(PointerEvent e)
+    public void OnTakeSpell()
     {
-        _quest.Complete();
     }
 }

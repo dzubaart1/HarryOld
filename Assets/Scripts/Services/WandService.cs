@@ -10,7 +10,7 @@ namespace HarryPoter.Core
         private const string TRIANGLE_SPELL = "Triangle";
         private const string INFINITY_SPELL = "Infinity";
         private const float MIN_SCORE_MATCH = 0.8f;
-        
+
         public Wand CurrentWand { get; private set; }
         public WandConfiguration Configuration { get; private set; }
 
@@ -20,19 +20,22 @@ namespace HarryPoter.Core
         {
             Configuration = configuration;
         }
-        
+
         public void Initialize()
         {
             foreach (var gestureTextAsset in Configuration.GestureTextAssets)
             {
                 _gestures.Add(GestureIO.ReadGestureFromXML(gestureTextAsset.text));
             }
+
+            CurrentWand = Object.Instantiate(Configuration.WandPrefab);
+            CurrentWand.Deactivate();
         }
 
         public void Destroy()
         {
         }
-
+        
         public void Recognize(List<Point> points)
         {
             if (Configuration.IsWritingNewSpells)
@@ -40,25 +43,22 @@ namespace HarryPoter.Core
                 WriteNewSpell(points);
                 return;
             }
-            
+
             ActivateSpell(points);
         }
-
-        public void SetWand(Wand wand)
+        
+        public void TeleportWand(Vector3 pos, Quaternion rot)
         {
-            if (CurrentWand != null)
-            {
-                Object.Destroy(CurrentWand.gameObject);
-                CurrentWand = null;
-            }
-            
-            CurrentWand = wand;
+            CurrentWand.transform.position = pos;
+            CurrentWand.transform.rotation = rot;
+            CurrentWand.Activate();
         }
-
+        
         private int temp = 0;
         private void WriteNewSpell(List<Point> points)
         {
-            GestureIO.WriteGesture(points.ToArray(), Configuration.SpellName, Application.persistentDataPath + $"Spell_{temp}.xml");
+            GestureIO.WriteGesture(points.ToArray(), Configuration.SpellName,
+                Application.persistentDataPath + $"Spell_{temp}.xml");
             temp++;
         }
 
@@ -68,7 +68,7 @@ namespace HarryPoter.Core
             {
                 return;
             }
-            
+
             Gesture candidate = new Gesture(points.ToArray());
             Result result = PointCloudRecognizer.Classify(candidate, _gestures.ToArray());
 
@@ -76,10 +76,10 @@ namespace HarryPoter.Core
             {
                 return;
             }
-            
+
             Debug.Log(result.GestureClass + " " + result.Score);
 
-            WandSpell wandSpell = CurrentWand.GetComponentInChildren<WandSpell>();
+            WandSpell wandSpell = CurrentWand.WandSpell;
 
             switch (result.GestureClass)
             {

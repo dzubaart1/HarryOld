@@ -3,8 +3,10 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class Quest : MonoBehaviour
+    public abstract class Quest : MonoBehaviour
     {
+        public event Action OnCompleteEvent;
+        
         [SerializeField] private GameObject _gift;
         [SerializeField] private ParticleSystem _particleSystem;
 
@@ -17,6 +19,8 @@ namespace HarryPoter.Core
         {
             _gift.SetActive(true);
             _particleSystem.Play();
+            
+            OnCompleteEvent?.Invoke();
         }
     }
 }

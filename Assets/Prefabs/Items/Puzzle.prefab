@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6780474116934643113}
   - component: {fileID: 2778699966540916993}
   - component: {fileID: 8057237414570240635}
-  - component: {fileID: 749457628650705079}
   m_Layer: 0
   m_Name: Puzzle
   m_TagString: Untagged
@@ -74,22 +73,9 @@ MonoBehaviour:
   - {fileID: 8792978715487317417}
   - {fileID: 2533140045621664048}
   - {fileID: 337608384571003984}
-  _quest: {fileID: 749457628650705079}
   _top: {fileID: 5957748781506546579}
---- !u!114 &749457628650705079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156464164606168269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8097c6087f454c0b827cde63625a7b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _doneParticleSystem: {fileID: 2052213469238410268}
   _gift: {fileID: 4556937812240916015}
-  _particleSystem: {fileID: 2052213469238410268}
 --- !u!1 &1013483010746077898
 GameObject:
   m_ObjectHideFlags: 0

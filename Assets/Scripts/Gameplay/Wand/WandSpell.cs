@@ -23,15 +23,23 @@ namespace HarryPoter.Core
 
         private const float MIN_FOCUSING_TIME_TO_APPLY= 1.5f;
         private const float SPELL_TIME = 4f;
-
+        
+        [Header("Refs")]
         [SerializeField] private List<SpellLayers> _layers;
         [SerializeField] private Transform _wandEnd;
-        [SerializeField] private LineRenderer _selectLineRender;
-        [SerializeField] private Material _wrongMaterial;
-        [SerializeField] private Material _correctMaterial;
         [SerializeField] private Wand _wand;
-
+        
+        [Space]
+        [Header("Views")]
+        [SerializeField] private LineRenderer _selectLineRender;
+        [SerializeField] private Material _attackMaterial;
+        [SerializeField] private Material _takeMaterial;
+        [SerializeField] private Material _openMaterial;
+        [SerializeField] private Material _correctMaterial;
+        [SerializeField] private ParticleSystem _applySpellParticles;
+        
         private ESpell _currentSpell = ESpell.None;
+        private Material _currentMaterial;
         private int _currentLayer;
         private float _focusingTime;
         private float _globalTime;
@@ -43,6 +51,11 @@ namespace HarryPoter.Core
 
         private void Update()
         {
+            if (!_wand.IsGrabbed)
+            {
+                return;
+            }
+            
             if (_currentSpell == ESpell.None)
             {
                 return;
@@ -72,14 +85,13 @@ namespace HarryPoter.Core
                 
                 if (_focusingTime > MIN_FOCUSING_TIME_TO_APPLY)
                 {
-                    Reset();
                     ApplySpell(raycastHit.transform.gameObject);
                 }
             }
             else
             {
                 _focusingTime = 0;
-                _selectLineRender.material = _wrongMaterial;
+                _selectLineRender.material = _currentMaterial;
             }
         }
 
@@ -87,43 +99,45 @@ namespace HarryPoter.Core
         {
             _currentSpell = spell;
             _currentLayer = GetLayerMaskBySpell(spell).value;
+            _currentMaterial = GetMaterialBySpell(spell);
             
             _wand.IsBusy = true;
+        }
+        
+        public void Reset()
+        {
+            _currentSpell = ESpell.None;
+            _focusingTime = 0;
+            _wand.IsBusy = false;
+            _selectLineRender.positionCount = 0;
         }
 
         private void ApplySpell(GameObject gameObject)
         {
+            ISpellable spellable = gameObject.GetComponentInChildren<ISpellable>();
+            if (spellable == null)
+            {
+                Debug.Log("Can't find ISpellable!");
+                return;
+            }
+            
             switch (_currentSpell)
             {
                 case ESpell.Attack:
-                    AttackSpell();
+                    spellable.OnAttackSpell();
                     break;
                 case ESpell.Open:
-                    OpenSpell();
+                    spellable.OnOpenSpell();
                     break;
                 case ESpell.Take:
-                    TakeSpell();
+                    spellable.OnTakeSpell();
                     break;
                 default:
                     break;
             }
-
-            _wand.IsBusy = false;
-        }
-        
-        private void AttackSpell()
-        {
-            Debug.Log("ATTACK SPELL!");
-        }
-
-        private void TakeSpell()
-        {
-            Debug.Log("TAKE SPELL!");
-        }
-
-        private void OpenSpell()
-        {
-            Debug.Log("OPEN SPELL!");
+            
+            _applySpellParticles.Play();
+            Reset();
         }
 
         private LayerMask GetLayerMaskBySpell(ESpell spell)
@@ -139,12 +153,19 @@ namespace HarryPoter.Core
             throw new ArgumentException("Can't Find Layer By Spell");
         }
 
-        private void Reset()
+        private Material GetMaterialBySpell(ESpell spell)
         {
-            _currentSpell = ESpell.None;
-            _focusingTime = 0;
-            _wand.IsBusy = false;
-            _selectLineRender.positionCount = 0;
+            switch (spell)
+            {
+                case ESpell.Attack:
+                    return _attackMaterial;
+                case ESpell.Open:
+                    return _openMaterial;
+                case ESpell.Take:
+                    return _takeMaterial;
+                default:
+                    return _attackMaterial;
+            }
         }
     }
 }

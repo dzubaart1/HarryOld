@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7527648167496940950}
   - component: {fileID: 4044236882292432973}
   m_Layer: 6
-  m_Name: ParticleSystem
+  m_Name: QuestComplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

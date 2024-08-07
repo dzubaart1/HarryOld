@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class PuzzleItem : MonoBehaviour
+    public class PuzzleItem : MonoBehaviour, ISpellable
     {
         public enum EPuzzleItem
         {
@@ -41,5 +41,25 @@ namespace HarryPoter.Core
         [SerializeField] private EPuzzleItem _puzzleItemType;
         [SerializeField] private Grabbable _grabbable;
         [SerializeField] private Collider _collider;
+
+        private Transform _wandTransform;
+        
+        private void Awake()
+        {
+            _wandTransform = Engine.GetService<WandService>().CurrentWand.transform;
+        }
+
+        public void OnOpenSpell()
+        {
+        }
+
+        public void OnAttackSpell()
+        {
+        }
+
+        public void OnTakeSpell()
+        {
+            transform.position = _wandTransform.position;
+        }
     }
 }

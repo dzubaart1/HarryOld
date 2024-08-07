@@ -482,8 +482,8 @@ GameObject:
   - component: {fileID: 2653541893881806465}
   - component: {fileID: 7676987037829964247}
   - component: {fileID: 6226149350827596540}
-  - component: {fileID: 3564150482507375665}
   - component: {fileID: 8005158887831409554}
+  - component: {fileID: 401416426811586481}
   m_Layer: 6
   m_Name: Top
   m_TagString: Untagged
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6730776279235299709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
@@ -639,20 +639,6 @@ MonoBehaviour:
     MaxAngle:
       Constrain: 1
       Value: 90
---- !u!114 &3564150482507375665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730776279235299709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8097c6087f454c0b827cde63625a7b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gift: {fileID: 2388095718885579658}
-  _particleSystem: {fileID: 6406153090957189812}
 --- !u!114 &8005158887831409554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,8 +651,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25c308e605784443bb2f6ef82b9d832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabbable: {fileID: 7676987037829964247}
-  _quest: {fileID: 3564150482507375665}
+  _grabInteractable: {fileID: 2653541893881806465}
+--- !u!114 &401416426811586481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730776279235299709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8a632f5eb0415993388afdc3ec6003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gift: {fileID: 2388095718885579658}
+  _particleSystem: {fileID: 6406153090957189812}
+  _handGrabInteractable: {fileID: 2653541893881806465}
 --- !u!1 &8066005350736157966
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,5 +8,6 @@ namespace HarryPoter.Core
         public List<TextAsset> GestureTextAssets;
         public bool IsWritingNewSpells;
         public string SpellName;
+        public Wand WandPrefab;
     }
 }

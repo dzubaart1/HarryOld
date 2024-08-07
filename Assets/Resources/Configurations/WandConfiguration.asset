@@ -33,3 +33,4 @@ MonoBehaviour:
   - {fileID: 4900000, guid: b81614adf379e1d4dbeb048dd32076a0, type: 3}
   IsWritingNewSpells: 0
   SpellName: 
+  WandPrefab: {fileID: 3613334520605108226, guid: a56ccad3ebae3904394f384c7e2c25cb, type: 3}
