@@ -19,7 +19,7 @@ public class WandDrawing : MonoBehaviour
     [SerializeField] private Wand _wand;
 
     private WandService _wandService;
-    private Transform _centerEye;
+    private Transform _player;
     
     private Vector3 _prevWandEndPos;
     private float _lastAddedPointTime;
@@ -30,14 +30,12 @@ public class WandDrawing : MonoBehaviour
     private void Awake()
     {
         _wandService = Engine.GetService<WandService>();
-        _centerEye = Engine.GetService<InputService>().Player.CenterEye;
+        _player = Engine.GetService<InputService>().Player.transform;
     }
 
     private void Update()
     {
-        Debug.DrawLine(_centerEye.position, _centerEye.position + _centerEye.forward);
-        
-        if (_wand.IsBusy | !_wand.IsGrabbed)
+        if (_wand.IsBusy | !_wand.GrabInteractable.IsGrabbed)
         {
             return;
         }
@@ -77,7 +75,7 @@ public class WandDrawing : MonoBehaviour
 
     private void StartDrawing()
     {
-        _plane = new Plane(_centerEye.forward, _centerEye.position);
+        _plane = new Plane(_player.forward, _player.position);
         _prevWandEndPos = _wandEnd.position;
         
         Reset();
@@ -103,7 +101,7 @@ public class WandDrawing : MonoBehaviour
 
         for (int i = 0; i < points.Count; i++)
         {
-            lineRenderer.SetPosition(i, new Vector3(points[i].X, points[i].Y, 0) + _centerEye.position + _centerEye.forward);
+            lineRenderer.SetPosition(i, new Vector3(points[i].X, points[i].Y, 0) + _player.position + _player.forward);
         }
     }
     

@@ -8,8 +8,9 @@ namespace HarryPoter.Core
         [Header("Refs")]
         [SerializeField] private List<PuzzlePart> _puzzleParts;
         [SerializeField] private GameObject _top;
-        [SerializeField] private ParticleSystem _doneParticleSystem;
         [SerializeField] private GameObject _gift;
+
+        private ParticlesService _particlesService;
         
         private int _puzzleItems;
 
@@ -17,6 +18,8 @@ namespace HarryPoter.Core
         {
             _puzzleItems = (1 << _puzzleParts.Count) - 1;
             _gift.gameObject.SetActive(false);
+
+            _particlesService = Engine.GetService<ParticlesService>();
         }
 
         private void OnEnable()
@@ -46,10 +49,14 @@ namespace HarryPoter.Core
 
         private void CompletePuzzle()
         {
-            _doneParticleSystem.Play();
+            _particlesService.SpawnParticlesSystem(ParticlesConfiguration.EParticle.QuestComplete, transform.position).Play();
             
             _top.gameObject.SetActive(false);
             _gift.gameObject.SetActive(true);
+            foreach (var puzzlePart in _puzzleParts)
+            {
+                puzzlePart.HidePawn();
+            }
         }
     }
 }

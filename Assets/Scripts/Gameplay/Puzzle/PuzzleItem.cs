@@ -1,5 +1,4 @@
-﻿using System;
-using Oculus.Interaction;
+﻿using Oculus.Interaction;
 using UnityEngine;
 
 namespace HarryPoter.Core
@@ -22,11 +21,11 @@ namespace HarryPoter.Core
             }
         }
 
-        public Grabbable Grabbable
+        public GrabInteractable GrabInteractable
         {
             get
             {
-                return _grabbable;
+                return _grabInteractable;
             }
         }
 
@@ -39,14 +38,17 @@ namespace HarryPoter.Core
         }
 
         [SerializeField] private EPuzzleItem _puzzleItemType;
-        [SerializeField] private Grabbable _grabbable;
+        [SerializeField] private GrabInteractable _grabInteractable;
         [SerializeField] private Collider _collider;
 
-        private Transform _wandTransform;
+        private TeleportService _teleportService;
+        
+        private Transform _spawnPoint;
         
         private void Awake()
         {
-            _wandTransform = Engine.GetService<WandService>().CurrentWand.transform;
+            _teleportService = Engine.GetService<TeleportService>();
+            _spawnPoint = Engine.GetService<InputService>().Player.SpawnPoint;
         }
 
         public void OnOpenSpell()
@@ -59,7 +61,7 @@ namespace HarryPoter.Core
 
         public void OnTakeSpell()
         {
-            transform.position = _wandTransform.position;
+            _teleportService.Teleport(_grabInteractable, _spawnPoint);
         }
     }
 }

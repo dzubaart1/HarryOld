@@ -29,7 +29,6 @@ namespace HarryPoter.Core
             }
 
             CurrentWand = Object.Instantiate(Configuration.WandPrefab);
-            CurrentWand.Deactivate();
         }
 
         public void Destroy()
@@ -45,13 +44,6 @@ namespace HarryPoter.Core
             }
 
             ActivateSpell(points);
-        }
-        
-        public void TeleportWand(Vector3 pos, Quaternion rot)
-        {
-            CurrentWand.transform.position = pos;
-            CurrentWand.transform.rotation = rot;
-            CurrentWand.Activate();
         }
         
         private int temp = 0;

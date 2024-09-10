@@ -4,8 +4,8 @@ namespace HarryPoter.Core
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Transform _centerEye;
+        [SerializeField] private Transform _spawnPoint;
 
-        public Transform CenterEye => _centerEye;
+        public Transform SpawnPoint => _spawnPoint;
     }
 }

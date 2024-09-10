@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using HarryPoter.Core;
 using UnityEngine;
@@ -9,8 +8,17 @@ public class Snitch : MonoBehaviour, ISpellable
     [SerializeField] private GameObject _earPrefab;
 
     private const float ACCURACY = 0.1f;
-    
+
+    private ParticlesService _particlesService;
+
+    private Transform _spawnPoint;
     private int _currentPoint;
+
+    private void Awake()
+    {
+        _spawnPoint = Engine.GetService<InputService>().Player.SpawnPoint;
+        _particlesService = Engine.GetService<ParticlesService>();
+    }
 
     private void Start()
     {
@@ -35,7 +43,10 @@ public class Snitch : MonoBehaviour, ISpellable
 
     public void OnAttackSpell()
     {
-        Instantiate(_earPrefab, transform.position, Quaternion.identity);
+        _particlesService.SpawnParticlesSystem(ParticlesConfiguration.EParticle.QuestComplete, transform.position).Play();
+        
+        Instantiate(_earPrefab, _spawnPoint.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     public void OnTakeSpell()

@@ -7,20 +7,37 @@ namespace HarryPoter.Core
     {
         public event Action OnCompleteEvent;
         
-        [SerializeField] private GameObject _gift;
-        [SerializeField] private ParticleSystem _particleSystem;
+        [Header("Refs")]
+        [SerializeField] protected GrabInteractable _gift;
+        [SerializeField] private Transform _particlesSystemPos;
+
+        [Space]
+        [Header("Configs")]
+        [SerializeField] private bool _isTeleportToPlayer;
+        
+        private ParticlesService _particlesService;
+        private TeleportService _teleportService;
+        private Transform _objectSpawnPoint;
 
         private void Awake()
         {
-            _gift.SetActive(false);
+            _gift.gameObject.SetActive(false);
+
+            _objectSpawnPoint = Engine.GetService<InputService>().Player.SpawnPoint;
+            _teleportService = Engine.GetService<TeleportService>();
+            _particlesService = Engine.GetService<ParticlesService>();
         }
 
-        public void Complete()
+        protected void Complete()
         {
-            _gift.SetActive(true);
-            _particleSystem.Play();
-            
             OnCompleteEvent?.Invoke();
+            _particlesService.SpawnParticlesSystem(ParticlesConfiguration.EParticle.QuestComplete, _particlesSystemPos.position).Play();
+            _gift.gameObject.SetActive(true);
+
+            if (_isTeleportToPlayer)
+            {
+                _teleportService.Teleport(_gift, _objectSpawnPoint);
+            }
         }
     }
 }

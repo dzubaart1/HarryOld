@@ -1,48 +1,46 @@
 ﻿using System.Collections;
-using Oculus.Interaction;
 using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    [RequireComponent(typeof(Grabbable))]
     public class PickedItem : MonoBehaviour, ISpellable
     {
         [Header("Refs")]
-        [SerializeField] private FindingItemsService.EListItem _listItem;
-        [SerializeField] private ParticleSystem _pickedItemPartcles;
-
+        [SerializeField] private GrabInteractable _grabInteractable;
+        
+        
         [Space]
         [Header("Configs")]
         [SerializeField] private float _disappearDelay = 3f;
+        [SerializeField] private FindingItemsService.EListItem _listItem;
         
         private FindingItemsService _findingItemsService;
-        private Grabbable _grabbable;
-        private Transform _wandTransform;
+        private ParticlesService _particlesService;
+        private TeleportService _teleportService;
+        
+        private Transform _spawnPoint;
         
         private void Awake()
         {
-            _grabbable = GetComponent<Grabbable>();
+            _particlesService = Engine.GetService<ParticlesService>();
             _findingItemsService = Engine.GetService<FindingItemsService>();
-            _wandTransform = Engine.GetService<WandService>().CurrentWand.transform;
+            _teleportService = Engine.GetService<TeleportService>();
+            
+            _spawnPoint = Engine.GetService<InputService>().Player.SpawnPoint;
         }
 
         private void OnEnable()
         {
-            _grabbable.WhenPointerEventRaised += OnPoint;
+            _grabInteractable.GrabEvent += OnGrab;
         }
 
         private void OnDisable()
         {
-            _grabbable.WhenPointerEventRaised -= OnPoint;
+            _grabInteractable.GrabEvent -= OnGrab;
         }
 
-        private void OnPoint(PointerEvent e)
+        private void OnGrab()
         {
-            if (e.Type != PointerEventType.Select)
-            {
-                return;
-            }
-            
             _findingItemsService.CheckIn(_listItem);
 
             StartCoroutine(Disappear());
@@ -52,7 +50,7 @@ namespace HarryPoter.Core
         {
             yield return new WaitForSeconds(_disappearDelay);
             
-            _pickedItemPartcles.Play();
+            _particlesService.SpawnParticlesSystem(ParticlesConfiguration.EParticle.Disappear, transform.position).Play();
             gameObject.SetActive(false);
         }
 
@@ -66,7 +64,7 @@ namespace HarryPoter.Core
 
         public void OnTakeSpell()
         {
-            transform.position = _wandTransform.position;
+            _teleportService.Teleport(_grabInteractable, _spawnPoint);
         }
     }
 }

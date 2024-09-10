@@ -36,8 +36,6 @@ namespace HarryPoter.Core
         {
             ItemList res = GetListItemByType(listItem);
             res.GameObject.SetActive(true);
-            
-            Debug.Log("CHECK IN " + listItem);
         }
 
         private ItemList GetListItemByType(FindingItemsService.EListItem type)

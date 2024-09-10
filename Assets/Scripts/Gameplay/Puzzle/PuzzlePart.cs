@@ -8,9 +8,16 @@ public class PuzzlePart : MonoBehaviour
     
     [SerializeField] private PuzzleItem.EPuzzleItem _puzzleItemType;
     [SerializeField] private Transform _itemPos;
+
+    private PuzzleItem _currentItem;
     
     private void OnTriggerEnter(Collider other)
     {
+        if (_currentItem != null)
+        {
+            return;
+        }
+        
         PuzzleItem puzzleItem = other.GetComponent<PuzzleItem>();
 
         if (puzzleItem == null || puzzleItem.PuzzleItemType != _puzzleItemType)
@@ -18,13 +25,23 @@ public class PuzzlePart : MonoBehaviour
             return;
         }
 
-        Debug.Log("Puzzle Part Trigger Enter");
+        _currentItem = puzzleItem;
 
-        puzzleItem.gameObject.transform.position = _itemPos.position;
-        puzzleItem.gameObject.transform.rotation = Quaternion.identity;
-        puzzleItem.Grabbable.enabled = false;
-        puzzleItem.Collider.enabled = false;
+        _currentItem.GrabInteractable.ToggleGrabbing(false);
+        _currentItem.gameObject.transform.position = _itemPos.position;
+        _currentItem.gameObject.transform.rotation = Quaternion.identity;
+        _currentItem.Collider.enabled = false;
         
-        PutPuzzleItemEvent?.Invoke(puzzleItem.PuzzleItemType);
+        PutPuzzleItemEvent?.Invoke(_currentItem.PuzzleItemType);
+    }
+
+    public void HidePawn()
+    {
+        if (_currentItem == null)
+        {
+            return;
+        }
+        
+        _currentItem.gameObject.SetActive(false);
     }
 }

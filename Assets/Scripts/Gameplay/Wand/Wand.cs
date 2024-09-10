@@ -1,79 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using Oculus.Interaction;
-using Oculus.Interaction.HandGrab;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HarryPoter.Core
 {
     public class Wand : MonoBehaviour
     {
         [Header("Refs")]
-        [SerializeField] private List<HandGrabInteractable> _grabInteractables;
         [SerializeField] private WandSpell _wandSpell;
         [SerializeField] private WandDrawing _wandDrawing;
+        [SerializeField] private GrabInteractable _grabInteractable;
 
         [Space]
         [Header("Configs")]
-        [SerializeField] private float _timer = 2f;
+        [SerializeField] private float _deactivateDelay = 2f;
         public bool IsBusy;
         
-        public bool IsGrabbed { get; private set; }
         public WandSpell WandSpell => _wandSpell;
         public WandDrawing WandDrawing => _wandDrawing;
+        public GrabInteractable GrabInteractable => _grabInteractable;
 
         private float _deactivateTimer;
+        private bool _isTimerActive;
+
+        private void Start()
+        {
+            Deactivate();
+        }
 
         private void Update()
         {
-            if (IsGrabbed)
+            if (!_isTimerActive)
             {
-                _deactivateTimer = _timer;
                 return;
             }
-
+            
             _deactivateTimer -= Time.deltaTime;
-            if (_deactivateTimer < 0)
+            if (_deactivateTimer < 0 & !_grabInteractable.IsGrabbed)
             {
                 Deactivate();
-                _deactivateTimer = _timer;
             }
         }
 
         private void OnEnable()
         {
-            foreach (var grabInteractable in _grabInteractables)
-            {
-                grabInteractable.WhenPointerEventRaised += OnGrabbed;
-            }
+            _grabInteractable.GrabEvent += OnGrab;
+            _grabInteractable.UngrabEvent += OnUngrab;
         }
 
         private void OnDisable()
         {
-            foreach (var grabInteractable in _grabInteractables)
-            {
-                grabInteractable.WhenPointerEventRaised -= OnGrabbed;
-            }
+            _grabInteractable.GrabEvent -= OnGrab;
+            _grabInteractable.UngrabEvent -= OnUngrab;
         }
-
-        private void OnGrabbed(PointerEvent e)
+        
+        private void Deactivate()
         {
-            if (e.Type == PointerEventType.Select)
-            {
-                IsGrabbed = true;
-            }
-
-            if (e.Type == PointerEventType.Unselect)
-            {
-                Deactivate();
-            }
-        }
-
-        public void Deactivate()
-        {
-            _deactivateTimer = _timer;
-            IsGrabbed = false;
+            _isTimerActive = false;
+            _deactivateTimer = _deactivateDelay;
             WandDrawing.Reset();
             WandSpell.Reset();
             gameObject.SetActive(false);
@@ -81,11 +63,22 @@ namespace HarryPoter.Core
 
         public void Activate()
         {
-            _deactivateTimer = _timer;
-            IsGrabbed = false;
+            _isTimerActive = true;
+            _deactivateTimer = _deactivateDelay;
             WandDrawing.Reset();
             WandSpell.Reset();
             gameObject.SetActive(true);
+        }
+
+        private void OnGrab()
+        {
+            _isTimerActive = false;
+        }
+
+        private void OnUngrab()
+        {
+            _isTimerActive = true;
+            _deactivateTimer = _deactivateDelay;
         }
     }
 }

@@ -10,12 +10,14 @@ namespace HarryPoter.Core
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private PlayerGestures _playerGestures;
 
+        private TeleportService _teleportService;
         private WandService _wandService;
         private List<PlayerGestures.GestureConfig> _wandGestures;
 
         private void Awake()
         {
             _wandService = Engine.GetService<WandService>();
+            _teleportService = Engine.GetService<TeleportService>();
             _wandGestures = _playerGestures.GetGestureByType(PlayerGestures.EGesture.Wand);
         }
 
@@ -37,7 +39,8 @@ namespace HarryPoter.Core
 
         private void TeleportWand()
         {
-            _wandService.TeleportWand(_spawnPoint.position, _spawnPoint.rotation);
+            _teleportService.Teleport(_wandService.CurrentWand.GrabInteractable, _spawnPoint);
+            _wandService.CurrentWand.Activate();
         }
     }
 }

@@ -36,7 +36,8 @@ namespace HarryPoter.Core
         [SerializeField] private Material _takeMaterial;
         [SerializeField] private Material _openMaterial;
         [SerializeField] private Material _correctMaterial;
-        [SerializeField] private ParticleSystem _applySpellParticles;
+
+        private ParticlesService _particlesService;
         
         private ESpell _currentSpell = ESpell.None;
         private Material _currentMaterial;
@@ -47,11 +48,13 @@ namespace HarryPoter.Core
         private void Awake()
         {
             _selectLineRender.positionCount = 0;
+
+            _particlesService = Engine.GetService<ParticlesService>();
         }
 
         private void Update()
         {
-            if (!_wand.IsGrabbed)
+            if (!_wand.GrabInteractable.IsGrabbed)
             {
                 return;
             }
@@ -136,7 +139,7 @@ namespace HarryPoter.Core
                     break;
             }
             
-            _applySpellParticles.Play();
+            _particlesService.SpawnParticlesSystem(ParticlesConfiguration.EParticle.ApplySpell, _wandEnd.position).Play();
             Reset();
         }
 
