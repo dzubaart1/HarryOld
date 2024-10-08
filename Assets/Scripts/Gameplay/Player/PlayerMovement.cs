@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HarryPoter.Core
@@ -7,9 +8,8 @@ namespace HarryPoter.Core
     {
         [Header("Refs")]
         [SerializeField] private PlayerGestures _playerGestures;
-        [SerializeField] private CharacterController _characterController;
-        [SerializeField] private Transform _centerEye;
-
+        [SerializeField] private Transform _rotationPoint;
+        [SerializeField] private Transform _movePoint;
         
         [Space]
         [Header("Configs")]
@@ -17,23 +17,30 @@ namespace HarryPoter.Core
         
         private List<PlayerGestures.GestureConfig> _forwardConfigs;
         private List<PlayerGestures.GestureConfig> _backwardConfigs;
-        
-        private bool _isMoving;
-        private int _moveDirection;
 
+        private Vector3 _moveOffset;
+        
         private void Awake()
         {
             _forwardConfigs = _playerGestures.GetGestureByType(PlayerGestures.EGesture.Forward);
             _backwardConfigs = _playerGestures.GetGestureByType(PlayerGestures.EGesture.Backward);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
+            _moveOffset = Vector3.zero;
+            
+            _movePoint.rotation = Quaternion.Euler(0, _rotationPoint.rotation.eulerAngles.y, 0);
+            _movePoint.position = transform.position + _movePoint.forward;
+            
             foreach (var config in _forwardConfigs)
             {
                 if (config.Group.Active)
                 {
-                    Forward();
+                    Vector3 direction = (_movePoint.position- transform.position).normalized;
+                    direction.y = 0;
+
+                    _moveOffset = direction * _speed / 100;
                     return;
                 }
             }
@@ -42,26 +49,18 @@ namespace HarryPoter.Core
             {
                 if (config.Group.Active)
                 {
-                    Backward();
+                    Vector3 direction = (_movePoint.position- transform.position).normalized;
+                    direction.y = 0;
+
+                    _moveOffset = direction * _speed / 100;
                     return;
                 }
             }
         }
-        
-        private void Forward()
+
+        private void FixedUpdate()
         {
-            Vector3 target = _centerEye.forward * _speed / 10000 * Time.fixedTime;
-            target.y = 0;
-
-            _characterController.Move(target);
-        }
-
-        private void Backward()
-        {
-            Vector3 target = _centerEye.forward * _speed / 10000 * Time.fixedTime;
-            target.y = 0;
-
-            _characterController.Move(target);
+            transform.position += _moveOffset;
         }
     }
 }
