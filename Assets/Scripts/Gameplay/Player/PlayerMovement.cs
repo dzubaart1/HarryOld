@@ -7,6 +7,7 @@ namespace HarryPoter.Core
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Refs")]
+        [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private PlayerGestures _playerGestures;
         [SerializeField] private Transform _rotationPoint;
         [SerializeField] private Transform _movePoint;
@@ -60,7 +61,7 @@ namespace HarryPoter.Core
 
         private void FixedUpdate()
         {
-            transform.position += _moveOffset;
+            _rigidbody.MovePosition(transform.position + _moveOffset);
         }
     }
 }
