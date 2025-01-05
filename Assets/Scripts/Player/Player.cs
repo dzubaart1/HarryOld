@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace HarryPoter.Core
 {
@@ -7,12 +6,10 @@ namespace HarryPoter.Core
     {
         [Header("Refs")]
         [SerializeField] private Transform _head;
-        [SerializeField] private PlayerVoiceRecognizer _playerVoiceRecognizer;
-        [SerializeField] private PlayerObjectTeleport _playerObjectTeleport;
         [SerializeField] private PlayerMovement _playerMovement;
 
         [Header("Configs")]
-        [SerializeField] private float _moveOffset;
+        [SerializeField] private float _moveOffset = 1f;
 
         public Transform Head => _head;
 
@@ -28,16 +25,6 @@ namespace HarryPoter.Core
         public void StopMoveForward()
         {
             _playerMovement.ChangePositioning(false);
-        }
-
-        public void TeleportGrabInteractableToPlayer(GrabInteractable obj)
-        {
-            _playerObjectTeleport.Teleport(obj);
-        }
-
-        public void StartVoiceRecording()
-        {
-            _playerVoiceRecognizer.StartVoiceRecognition();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace HarryPoter.Core
 
             if (_spawnWandGestures.Any(gesture => gesture.Active))
             {
-                userController.TeleportWand();
+                userController.SpawnWand();
             }
 
             if (_moveForwardGestures.Any(gesture => gesture.Active))

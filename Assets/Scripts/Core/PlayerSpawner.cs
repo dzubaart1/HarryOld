@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
+using Utils;
 
 namespace HarryPoter.Core
 {
@@ -9,9 +10,26 @@ namespace HarryPoter.Core
 
         [CanBeNull] public Player Player { get; private set; }
         
-        public void SpawnPlayer()
+        public void SpawnPlayerOnScene()
         {
-            Player = Instantiate(_playerPrefab, Vector3.zero, Quaternion.identity);
+            Vector3 spawnPos = Vector3.zero;
+            
+            PlayerSpawnPoint playerSpawnPoint = FindObjectOfType<PlayerSpawnPoint>();
+
+            if (playerSpawnPoint != null)
+            {
+                spawnPos = playerSpawnPoint.transform.position;
+            }
+
+            if (Player == null)
+            {
+                Player = Instantiate(_playerPrefab, spawnPos, Quaternion.identity, transform);   
+            }
+            else
+            {
+                Player.transform.position = spawnPos;
+                Player.transform.rotation = Quaternion.identity;
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class PlayerVoiceRecognizer : MonoBehaviour
+    public class VoiceRecognizerManager : MonoBehaviour
     {
         [SerializeField] private AppVoiceExperience _voiceExperience;
 

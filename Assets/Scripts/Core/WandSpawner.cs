@@ -5,10 +5,6 @@ namespace HarryPoter.Core
 {
     public class WandSpawner : MonoBehaviour
     {
-        [Header("Refs")]
-        [SerializeField] private PlayerObjectTeleport playerObjectTeleport;
-        
-        [Space] 
         [Header("Prefabs")]
         [SerializeField] private Wand _wandPrefab;
         
@@ -18,7 +14,7 @@ namespace HarryPoter.Core
         {
             if (Wand == null)
             {
-                Wand = Instantiate(_wandPrefab);   
+                Wand = Instantiate(_wandPrefab, Vector3.zero, Quaternion.identity);   
             }
         }
     }

@@ -2,13 +2,13 @@
 {
     public enum EListItem
     {
-        item1,
-        item2,
-        item3,
-        item4,
-        item5,
-        item6,
-        item7
+        Wand,
+        YoYo,
+        Frisbi,
+        Love,
+        DarkBox,
+        Ear,
+        Klaxon
     }
 
     public enum ESpell

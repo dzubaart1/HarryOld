@@ -9,7 +9,7 @@ public class Snitch : MonoBehaviour
     
     private PlayerMovement _player;
 
-    private PlayerObjectTeleport _playerObjectTeleport;
+    private TeleportManager _teleportManager;
 
     private void OnEnable()
     {

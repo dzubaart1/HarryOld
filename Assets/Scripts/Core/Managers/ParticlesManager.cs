@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class ParticlesPool : MonoBehaviour
+    public class ParticlesManager : MonoBehaviour
     {
         public enum EParticle
         {
@@ -22,31 +22,26 @@ namespace HarryPoter.Core
             public EParticle Type;
             public ParticleSystem ParticleSystem;
         }
-        
+
         [SerializeField] private ParticlesSystemConfig[] _particlesSystemConfigs;
-        
+
         [CanBeNull] private Transform _root;
-        
+
         private Dictionary<EParticle, List<ParticleSystem>> _particlesPool = new Dictionary<EParticle, List<ParticleSystem>>();
 
-        private void Start()
-        {
-            _root = new GameObject("ParticlesPools").transform;
-        }
-        
         public bool TryGetParticlesSystem(EParticle particle, out ParticleSystem targetPS)
         {
             targetPS = null;
-            
+
             if (!TryGetConfigByType(particle, out ParticlesSystemConfig targetConfig))
             {
                 Debug.LogError("Can't find  config!");
                 return false;
             }
-            
+
             _particlesPool.TryGetValue(particle, out var list);
-            
-            if(list == null)
+
+            if (list == null)
             {
                 _particlesPool[particle] = new List<ParticleSystem>();
                 list = _particlesPool[particle];
@@ -59,14 +54,14 @@ namespace HarryPoter.Core
                 targetPS = Instantiate(targetConfig.ParticleSystem);
                 list.Add(targetPS);
             }
-            
+
             return true;
         }
 
         private bool TryGetConfigByType(EParticle particle, out ParticlesSystemConfig targetConfig)
         {
             targetConfig = null;
-            
+
             foreach (var config in _particlesSystemConfigs)
             {
                 if (config.Type == particle)

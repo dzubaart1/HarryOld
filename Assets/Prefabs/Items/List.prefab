@@ -101,21 +101,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &1351330461130786910
-Transform:
+--- !u!224 &1351330461130786910
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269017335445346507}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02037573, y: -0.1623651, z: -0.30347204}
+  m_LocalPosition: {x: 0, y: 0, z: -0.30347204}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 67.296005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.02037573, y: -0.1623651}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &9193990072035073147
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -184,21 +188,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &1750450883359878120
-Transform:
+--- !u!224 &1750450883359878120
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683503606003277215}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020510199, y: 0.29188287, z: -0.3042587}
+  m_LocalPosition: {x: 0, y: 0, z: -0.3042587}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 67.296005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.020510199, y: 0.29188287}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &2648539860016195354
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -305,21 +313,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &425956093445255348
-Transform:
+--- !u!224 &425956093445255348
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2792254301876791852}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020241024, y: -0.38962367, z: -0.2982022}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2982022}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 65.85795}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.020241024, y: -0.38962367}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &4715897562903073936
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -388,21 +400,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &258764645967590920
-Transform:
+--- !u!224 &258764645967590920
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3697687211691816837}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020510199, y: -0.27306703, z: -0.2982694}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2982694}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 67.296005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.020510199, y: -0.27306703}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &2783656907713694587
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -471,21 +487,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &6840192769405958634
-Transform:
+--- !u!224 &6840192769405958634
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4143319791086340323}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020510199, y: 0.1821232, z: -0.30446306}
+  m_LocalPosition: {x: 0, y: 0, z: -0.30446306}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 67.296005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.020510199, y: 0.1821232}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &1054312166067822963
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -554,21 +574,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &8507295454300954798
-Transform:
+--- !u!224 &8507295454300954798
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4369369667231747807}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020510199, y: -0.04749084, z: -0.30347204}
+  m_LocalPosition: {x: 0, y: 0, z: -0.30347204}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 67.296005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.020510199, y: -0.04749084}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &4905648541811503856
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -637,21 +661,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &1285830745973189623
-Transform:
+--- !u!224 &1285830745973189623
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5297479346004467645}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020510199, y: 0.0680455, z: -0.30257633}
+  m_LocalPosition: {x: 0, y: 0, z: -0.30257633}
   m_LocalScale: {x: 67.296005, y: 67.296005, z: 67.296005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214786801205324651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.020510199, y: 0.0680455}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &6738589244114228813
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -748,21 +776,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d141de1b37e48529d4c87e90d99b904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _list:
-  - GameObject: {fileID: 5297479346004467645}
+  _itemListConfigs:
+  - RectTransform: {fileID: 1750450883359878120}
     ListItemType: 1
-  - GameObject: {fileID: 1269017335445346507}
+  - RectTransform: {fileID: 6840192769405958634}
     ListItemType: 2
-  - GameObject: {fileID: 4143319791086340323}
+  - RectTransform: {fileID: 1285830745973189623}
     ListItemType: 3
-  - GameObject: {fileID: 2792254301876791852}
+  - RectTransform: {fileID: 8507295454300954798}
     ListItemType: 4
-  - GameObject: {fileID: 4369369667231747807}
+  - RectTransform: {fileID: 1351330461130786910}
     ListItemType: 5
-  - GameObject: {fileID: 3697687211691816837}
-    ListItemType: 6
-  - GameObject: {fileID: 1683503606003277215}
+  - RectTransform: {fileID: 258764645967590920}
     ListItemType: 0
+  - RectTransform: {fileID: 425956093445255348}
+    ListItemType: 6
 --- !u!1 &6933253480963369222
 GameObject:
   m_ObjectHideFlags: 0

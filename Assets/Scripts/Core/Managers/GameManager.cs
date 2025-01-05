@@ -4,13 +4,12 @@ using HarryPoter.Core.LocalManagers.Interfaces;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace HarryPoter.Core
 {
     public class GameManager : MonoBehaviour
     {
-        public event Action<string> LoadSceneCompleteEvent;
-        
         [Header("Scenes")]
         [SerializeField] private string _firstFloorSceneName = "FirstFloorScene";
         [SerializeField] private string _secondFloorSceneName = "SecondFloorScene";
@@ -18,6 +17,7 @@ namespace HarryPoter.Core
         [Space]
         [Header("Refs")]
         [SerializeField] private Game _game;
+        [SerializeField] private PlayerSpawner _playerSpawner;
         
         public string FirstFloorSceneName => _firstFloorSceneName;
         public string SecondFloorSceneName => _secondFloorSceneName;
@@ -48,7 +48,12 @@ namespace HarryPoter.Core
                 yield return null;
             }
             
-            LoadSceneCompleteEvent?.Invoke(sceneName);
+            OnCompleteLoading();
+        }
+
+        private void OnCompleteLoading()
+        {
+            _playerSpawner.SpawnPlayerOnScene();
         }
     }
 }
