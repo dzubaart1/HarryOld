@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ResultBox : MonoBehaviour
 {
-    [SerializeField] private GameObject _items;
+    /*[SerializeField] private GameObject _items;
 
     private FindingItemsService _findingItemsService;
 
@@ -25,5 +25,5 @@ public class ResultBox : MonoBehaviour
     private void OnEndList()
     {
         _items.gameObject.SetActive(true);
-    }
+    }*/
 }

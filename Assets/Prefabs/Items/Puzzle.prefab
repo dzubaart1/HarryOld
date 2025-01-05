@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6780474116934643113}
   - component: {fileID: 2778699966540916993}
   - component: {fileID: 8057237414570240635}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6539293722973337396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8619032471003574184}
   - component: {fileID: 8809881113195732634}
   - component: {fileID: 3076244238488209640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 4284819651175212335}
   - component: {fileID: 5322716740539966815}
   - component: {fileID: 337608384571003984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Part4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5456160544951157851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 5541686261330152645}
   - component: {fileID: 5689216045700497052}
   - component: {fileID: 2533140045621664048}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Part3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3567200081811756950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6076354547564559541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 4509690541874043696}
   - component: {fileID: 4783784480344146115}
   - component: {fileID: 1452478404199357930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 176955388815847808}
   - component: {fileID: 5975367293421841737}
   - component: {fileID: 6265993769296353006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3295634547317018898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 3335843037430670085}
   - component: {fileID: 372725005637982998}
   - component: {fileID: 8792978715487317417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7104765560247961472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 3415865272362850025}
   - component: {fileID: 4077184594099625198}
   - component: {fileID: 6927252083326339795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 6797548923671750908}
   - component: {fileID: 7458134561406651900}
   - component: {fileID: 1181851130378420591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -896,7 +896,7 @@ GameObject:
   - component: {fileID: 295657721933107937}
   - component: {fileID: 9015832598742944729}
   - component: {fileID: 7713666992836708561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072472702659627661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1013,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552448036704499828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1044,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3493935842359057211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

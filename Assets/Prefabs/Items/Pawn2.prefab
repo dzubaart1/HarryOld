@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8399081576671101537}
   - component: {fileID: 46447700672989391}
   - component: {fileID: 5210104178688992187}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Pawn2
   m_TagString: Replaceable
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puzzleItemType: 1
-  _grabbable: {fileID: 46447700672989391}
+  _grabInteractable: {fileID: 0}
   _collider: {fileID: 79016365039453742}
 --- !u!1 &5655173509858964891
 GameObject:
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 5147376097093937871}
   - component: {fileID: 3906461408645254157}
   - component: {fileID: 5817681889654985103}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}

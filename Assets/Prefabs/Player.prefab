@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 834154824485584680}
   - component: {fileID: -4773258860591304310}
   - component: {fileID: 5212857897722627892}
-  - component: {fileID: 493662474221175517}
   - component: {fileID: 1874642341911490744}
   m_Layer: 0
   m_Name: Player
@@ -174,6 +173,7 @@ Transform:
   - {fileID: 1124409498007145804}
   - {fileID: 2649220925091271892}
   - {fileID: 7472577319307034734}
+  - {fileID: 8602060449539338935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3981568584701183813
@@ -297,29 +297,6 @@ MonoBehaviour:
   _rotationPoint: {fileID: 6658861634435446148}
   _movePoint: {fileID: 7472577319307034734}
   _speed: 1
---- !u!136 &493662474221175517
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566903290862805814}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.35
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &1874642341911490744
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -345,7 +322,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!1 &2003250513746653858
 GameObject:
@@ -942,6 +919,61 @@ MonoBehaviour:
   _updateRootScale: 1
   _enablePhysicsCapsules: 0
   _applyBoneTranslations: 1
+--- !u!1 &5491896560536153270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8602060449539338935}
+  - component: {fileID: 4786815379030371358}
+  m_Layer: 7
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8602060449539338935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491896560536153270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1844265155950399518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4786815379030371358
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491896560536153270}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!1 &5592870048705336998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1356,6 @@ GameObject:
   - component: {fileID: 2649220925091271892}
   - component: {fileID: 3930059414085764985}
   - component: {fileID: 5288757018172018406}
-  - component: {fileID: 6581589384597073154}
   m_Layer: 0
   m_Name: App Voice Experience
   m_TagString: Untagged
@@ -1506,21 +1537,6 @@ MonoBehaviour:
   onOutOfDomain:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6581589384597073154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727831920027251834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf62478ea4890e94c9a96bf8b121ae34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _appVoiceExperience: {fileID: 3930059414085764985}
-  _playerGestures: {fileID: 3290508287421016453}
-  Logs: {fileID: 7018235029426297291}
 --- !u!1 &8996653221167841962
 GameObject:
   m_ObjectHideFlags: 0

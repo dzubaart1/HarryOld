@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8186416505882149159}
   - component: {fileID: 7088285859423472160}
   - component: {fileID: 4878660875024665029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WandDrawing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensitive: 0.0001
   _noActiveTimeToFinish: 0.5
-  _isDebugOn: 0
+  _isDebugOn: 1
   _wandEnd: {fileID: 7713931181857312016}
   _lineRenderer: {fileID: 4878660875024665029}
   _testLine: {fileID: 3160286598633358216}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5980199632826052680}
   - component: {fileID: 2692275182399117447}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandGrabPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5762109840543039007}
   - component: {fileID: 3160286598633358216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7713931181857312016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WandEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 3613334520605108226}
   - component: {fileID: 5152931464560245202}
   - component: {fileID: -7292374567777325276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3613334520605108226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8496418794567783943}
   - component: {fileID: 2383430118948867640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wand_mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4628931385167547433}
   - component: {fileID: 7658574266079819373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandGrabPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 1592038983718774127}
   - component: {fileID: 1288187045761347447}
   - component: {fileID: 3855234050872876088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WandSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,15 +703,15 @@ MonoBehaviour:
   - SpellType: 2
     LayerMask:
       serializedVersion: 2
-      m_Bits: 64
+      m_Bits: 512
   - SpellType: 0
     LayerMask:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 256
   - SpellType: 1
     LayerMask:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 1024
   _wandEnd: {fileID: 7713931181857312016}
   _wand: {fileID: 3613334520605108226}
   _selectLineRender: {fileID: 3855234050872876088}
@@ -833,7 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6664575955892534040}
   - component: {fileID: 6422666748895338404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wand_mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c41c704cb160d054d8866891f0c6cbe1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

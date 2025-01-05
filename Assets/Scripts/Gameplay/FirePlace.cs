@@ -4,10 +4,10 @@ namespace HarryPoter.Core
 {
     public class FirePlace : MonoBehaviour
     {
-        [SerializeField] private GameObject _resultBox;
+        /*[SerializeField] private GameObject _resultBox;
         
-        private PlayerVoiceRecongnizer _playerVoiceRecognizer;
-        private ParticlesService _particlesService;
+        private PlayerVoiceRecognizer _playerVoiceRecognizer;
+        private ParticlesPool _particlesPool;
         private GameCycleService _gameCycleService;
         
         private bool _isPlayerInTrigger;
@@ -15,10 +15,10 @@ namespace HarryPoter.Core
         private void Awake()
         {
             _gameCycleService = Engine.GetService<GameCycleService>();
-            _particlesService = Engine.GetService<ParticlesService>();
+            _particlesPool = Engine.GetService<ParticlesPool>();
             
             _playerVoiceRecognizer = Engine.GetService<InputService>().Player
-                .GetComponentInChildren<PlayerVoiceRecongnizer>();
+                .GetComponentInChildren<PlayerVoiceRecognizer>();
         }
 
         private void OnEnable()
@@ -74,9 +74,9 @@ namespace HarryPoter.Core
                 return;
             }
 
-            _particlesService.SpawnParticlesSystem(ParticlesConfiguration.EParticle.QuestComplete, _resultBox.transform.position);
+            _particlesPool.SpawnParticlesSystem(ParticlesConfiguration.EParticle.QuestComplete, _resultBox.transform.position);
             _resultBox.gameObject.SetActive(false);
             _gameCycleService.AllItemsFound();
-        }
+        }*/
     }
 }

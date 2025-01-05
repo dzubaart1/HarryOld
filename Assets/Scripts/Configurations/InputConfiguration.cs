@@ -4,7 +4,7 @@ namespace HarryPoter.Core
 {
     public class InputConfiguration : Configuration
     {
-        public Player Player;
+        public PlayerMovement Player;
         public Vector3 StartPos;
     }
 }

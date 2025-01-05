@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5630431961724855858}
   - component: {fileID: 5550252775373073383}
   - component: {fileID: 8451942314313039980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8838733819683205027}
   - component: {fileID: 3269801602239030131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,8 +153,8 @@ GameObject:
   - component: {fileID: 499371414933814892}
   - component: {fileID: 2773673133581819106}
   - component: {fileID: 8561343865160153790}
-  m_Layer: 0
-  m_Name: Ear
+  m_Layer: 6
+  m_Name: ear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 4399019225924724928}
   - component: {fileID: 6509138275192826730}
   - component: {fileID: 6932122860142239917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ear_2_free_low:Group48003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

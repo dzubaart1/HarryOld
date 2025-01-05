@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8307452453893847304}
   - component: {fileID: 4034943796003133897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandGrabPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 1029005670341818635}
   - component: {fileID: 8399185026103910557}
   - component: {fileID: 5097930843562496994}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Amore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3653081026177447902}
   - component: {fileID: 2741637408690818754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Amore_mirror_mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444781003605736133}
   - component: {fileID: 7289269763650278004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandGrabPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3423968168895538667}
   - component: {fileID: 8895796426386856143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Amore_mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,9 +474,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
       propertyPath: m_Name
       value: Content
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: c57806c1d29650545b29b8419c7025d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

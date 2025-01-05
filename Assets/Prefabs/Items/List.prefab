@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5332954104922588663}
   - component: {fileID: 9134051872474740681}
   - component: {fileID: 8876305040390187528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1351330461130786910}
   - component: {fileID: 9193990072035073147}
   - component: {fileID: 3302351660988935626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1750450883359878120}
   - component: {fileID: 2648539860016195354}
   - component: {fileID: 1688948067742646332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: YoYo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7214786801205324651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Items
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 425956093445255348}
   - component: {fileID: 4715897562903073936}
   - component: {fileID: 3942743513126360103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Klaxon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 258764645967590920}
   - component: {fileID: 2783656907713694587}
   - component: {fileID: 3598530838089682747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WandFake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 6840192769405958634}
   - component: {fileID: 1054312166067822963}
   - component: {fileID: 863253423145410710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChewingDisc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 8507295454300954798}
   - component: {fileID: 4905648541811503856}
   - component: {fileID: 1040702027158041482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DarknessBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 1285830745973189623}
   - component: {fileID: 6738589244114228813}
   - component: {fileID: 6212782669971729288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Amore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8095178812717430442}
   - component: {fileID: 5691137852924697931}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5753596851110493497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}

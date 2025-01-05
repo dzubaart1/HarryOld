@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5235172336981886493}
   - component: {fileID: 6852598510543655370}
   - component: {fileID: 1803821879743265379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3577153267110816341}
   - component: {fileID: 7187225405187217234}
   - component: {fileID: 8530098495495809141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChewingDisc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,8 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36d21128ad648c5a7d88bb57d298b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listItem: 3
+  _grabInteractable: {fileID: 0}
   _disappearDelay: 3
+  _listItem: 3
 --- !u!1 &3396671582233118271
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ GameObject:
   - component: {fileID: 5278316911094285770}
   - component: {fileID: 7320421031059022871}
   - component: {fileID: 3590389558273391522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6916059085596295449}
   - component: {fileID: 4475890476880500609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}

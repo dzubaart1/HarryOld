@@ -1,12 +1,10 @@
-﻿using System;
-using HarryPoter.Core.Quests;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HarryPoter.Core
 {
     public class MainDoor : MonoBehaviour
     {
-        [SerializeField] private GrabInteractableQuest _grabInteractableQuest;
+        /*[SerializeField] private GrabInteractableQuest _grabInteractableQuest;
 
         private GameCycleService _gameCycleService;
         
@@ -17,17 +15,17 @@ namespace HarryPoter.Core
 
         private void OnEnable()
         {
-            _grabInteractableQuest.OnCompleteEvent += OnQuestComplete;
+            _grabInteractableQuest.CompleteEvent += QuestComplete;
         }
 
         private void OnDisable()
         {
-            _grabInteractableQuest.OnCompleteEvent -= OnQuestComplete;
+            _grabInteractableQuest.CompleteEvent -= QuestComplete;
         }
 
-        private void OnQuestComplete()
+        private void QuestComplete()
         {
             _gameCycleService.FinishGame();
-        }
+        }*/
     }
 }
