@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HarryPoter.Core.Spells;
 using JetBrains.Annotations;
 using PDollarGestureRecognizer;
@@ -25,11 +26,11 @@ namespace HarryPoter.Core
         
         private Plane _currentDrawingPlane;
         private float _deactivateTimer;
-        private bool _isTimerActive;
-
+        private bool _isDeactivateTimerActive;
+        
         private void Update()
         {
-            if (_isTimerActive)
+            if (_isDeactivateTimerActive)
             {
                 _deactivateTimer -= Time.deltaTime;
                 if (_deactivateTimer < 0)
@@ -57,6 +58,8 @@ namespace HarryPoter.Core
 
         private void OnEnable()
         {
+            MakeReset();
+            
             handGrabInteractableCollector.GrabEvent += OnHandGrab;
             handGrabInteractableCollector.UngrabEvent += OnUngrab;
         }
@@ -69,16 +72,14 @@ namespace HarryPoter.Core
         
         private void OnHandGrab()
         {
-            _isTimerActive = false;
+            _isDeactivateTimerActive = false;
         }
 
         private void OnUngrab()
         {
-            _wandTargetFinder.Reset();
-            _wandDebugger.Reset();
-            _wandDrawing.Reset();
-
-            _isTimerActive = true;
+            MakeReset();
+            
+            _isDeactivateTimerActive = true;
             _deactivateTimer = _deactivateDelay;
         }
 
@@ -148,6 +149,16 @@ namespace HarryPoter.Core
                 _currentSpell = spell;
                 spell.StartSpell();
             }
+        }
+
+        private void MakeReset()
+        {
+            _wandTargetFinder.Reset();
+            _wandDebugger.Reset();
+            _wandDrawing.Reset();
+            
+            _isDeactivateTimerActive = true;
+            _deactivateTimer = _deactivateDelay;
         }
     }
 }

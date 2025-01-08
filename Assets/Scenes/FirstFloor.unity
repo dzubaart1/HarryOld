@@ -46393,17 +46393,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367072288}
   m_Mesh: {fileID: 8776483243550969440, guid: a282f051c8438a04db6dd095bb8d61fd, type: 3}
---- !u!114 &1367401673 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 297079436406437943, guid: 97d60e5bb5e348e42bf24fbf27d885d7, type: 3}
-  m_PrefabInstance: {fileID: 965827219135973045}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1373417940
 GameObject:
   m_ObjectHideFlags: 0
@@ -68950,10 +68939,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7500354079390575359, guid: 37597ba9484e07c469c034cf3399cf08, type: 3}
-      propertyPath: _targetItem
-      value: 
-      objectReference: {fileID: 1801744795}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68973,17 +68958,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 387c4bc9ec7c496cb12fee42f4172835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1801744795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2867023254087664230, guid: 37597ba9484e07c469c034cf3399cf08, type: 3}
-  m_PrefabInstance: {fileID: 1801744792}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c36d21128ad648c5a7d88bb57d298b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1803089391
@@ -69299,6 +69273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7912d4ea834c308387e3284a67ce3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teleportPosForwardMultiplayer: 0.5
   _questHolders:
   - {fileID: 2647138794609380742}
   - {fileID: 1801744794}
@@ -79204,18 +79179,6 @@ PrefabInstance:
     - target: {fileID: 2419028006157046478, guid: 97d60e5bb5e348e42bf24fbf27d885d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524735719555000470, guid: 97d60e5bb5e348e42bf24fbf27d885d7, type: 3}
-      propertyPath: _gift
-      value: 
-      objectReference: {fileID: 1367401673}
-    - target: {fileID: 4524735719555000470, guid: 97d60e5bb5e348e42bf24fbf27d885d7, type: 3}
-      propertyPath: _isTeleportToPlayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5916956059512136366, guid: 97d60e5bb5e348e42bf24fbf27d885d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7786
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

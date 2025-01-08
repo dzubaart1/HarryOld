@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabInteractable: {fileID: 3269022905956283800}
   _disappearDelay: 3
-  _listItem: 0
+  _listItem: 3
 --- !u!54 &8399185026103910557
 Rigidbody:
   m_ObjectHideFlags: 0

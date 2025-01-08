@@ -1,8 +1,12 @@
-﻿namespace HarryPoter.Core.Quests
+﻿using Mechaincs;
+using UnityEngine;
+
+namespace HarryPoter.Core.Quests
 {
     public class TriggerQuest : Quest
     {
-        public string ObjectTag;
+        public TriggerRecognizer TriggerRecognizer;
+        public Transform PuttedObj;
         public bool IsEnter;
     }
 }

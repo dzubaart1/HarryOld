@@ -8,8 +8,12 @@ namespace HarryPoter.Core.LocalManagers
 {
     public class FirstFloorManager : BaseLocalManager
     {
+        [Header("Configs")]
+        [SerializeField] private float _teleportPosForwardMultiplayer = 1f;
+        
+        [Space]
         [SerializeField] private List<QuestHolder> _questHolders = new List<QuestHolder>();
-
+        
         private void Start()
         {
             InitQuestHolders();
@@ -46,7 +50,9 @@ namespace HarryPoter.Core.LocalManagers
             }
             
             questHolder.TargetItem.gameObject.SetActive(true);
-            teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, player.Head.position);
+            
+            Vector3 teleportPos = player.Head.position + player.Head.forward * _teleportPosForwardMultiplayer;
+            teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, teleportPos);
             
             if (_questHolders.All(questHolder => questHolder.IsComplete))
             {

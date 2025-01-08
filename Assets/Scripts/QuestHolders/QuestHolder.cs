@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HarryPoter.Core.LocalManagers.Interfaces;
 using JetBrains.Annotations;
+using Mechaincs;
 using UnityEngine;
 
 namespace HarryPoter.Core.Quests
@@ -54,101 +55,149 @@ namespace HarryPoter.Core.Quests
             gameManager.CurrentLocalManager.AddQuestHolder(this);
         }
 
-        public void TryCompleteGrabInteractableQuest()
+        public bool TryCompleteGrabInteractableQuest()
         {
             Quest currentQuest = CurrentQuest;
             
             if (currentQuest == null)
             {
-                return;
+                return false;
             }
 
-            if (currentQuest is not GrabInteractableQuest grabInteractableQuest)
+            if (currentQuest is not GrabInteractableQuest)
             {
-                return;
+                return false;
             }
 
             if (_localManager == null)
             {
-                return;
+                return false;
             }
 
-            if (_currentQuestID + 1 == _quests.Count)
+            if (_currentQuestID + 1 == _quests.Count & !IsComplete)
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return;
+                return false;
             }
             
             _currentQuestID++;
+            return true;
         }
 
-        public void TryCompleteSpellQuest(ESpell spellType)
+        public bool TryCompleteTriggerQuest(TriggerRecognizer triggerRecognizer, Transform puttedObj, bool isEnter)
         {
             Quest currentQuest = CurrentQuest;
             
             if (currentQuest == null)
             {
-                return;
+                return false;
+            }
+
+            if (currentQuest is not TriggerQuest triggerQuest)
+            {
+                return false;
+            }
+
+            if (isEnter != triggerQuest.IsEnter)
+            {
+                return false;
+            }
+
+            if (triggerRecognizer != triggerQuest.TriggerRecognizer)
+            {
+                return false;
+            }
+
+            if (puttedObj != triggerQuest.PuttedObj)
+            {
+                return false;
+            }
+
+            if (_localManager == null)
+            {
+                return false;
+            }
+
+            if (_currentQuestID + 1 == _quests.Count & !IsComplete)
+            {
+                IsComplete = true;
+                _localManager.OnQuestHolderCompleted(this);
+                return false;
+            }
+            
+            _currentQuestID++;
+            return true;
+        }
+
+        public bool TryCompleteSpellQuest(ESpell spellType)
+        {
+            Quest currentQuest = CurrentQuest;
+            
+            if (currentQuest == null)
+            {
+                return false;
             }
 
             if (currentQuest is not SpellQuest spellQuest)
             {
-                return;
+                return false;
             }
 
             if (spellQuest.SpellType != spellType)
             {
-                return;
+                return false;
             }
 
             if (_localManager == null)
             {
-                return;
+                return false;
             }
 
-            if (_currentQuestID + 1 == _quests.Count)
+            if (_currentQuestID + 1 == _quests.Count & !IsComplete)
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return;
+                return false;
             }
             
             _currentQuestID++;
+            return true;
         }
 
-        public void TryCompleteVoiceQuest(string voiceText)
+        public bool TryCompleteVoiceQuest(string voiceText)
         {
             Quest currentQuest = CurrentQuest;
             
             if (currentQuest == null)
             {
-                return;
+                return false;
             }
 
             if (currentQuest is not VoiceQuest voiceQuest)
             {
-                return;
+                return false;
             }
 
             if (!voiceQuest.VoiceText.Equals(voiceText))
             {
-                return;
+                return false;
             }
 
             if (_localManager == null)
             {
-                return;
+                return false;
             }
 
-            if (_currentQuestID + 1 == _quests.Count)
+            if (_currentQuestID + 1 == _quests.Count & !IsComplete)
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return;
+                return false;
             }
             
             _currentQuestID++;
+            return true;
         }
 
         public void Init(BaseLocalManager manager, bool hasCompleteQuestHolder)

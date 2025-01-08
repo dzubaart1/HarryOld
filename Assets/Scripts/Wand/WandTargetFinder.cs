@@ -124,6 +124,8 @@ namespace HarryPoter.Core
             _lineRenderer.positionCount = 0;
             _outFocusingTimer = 0f;
             _focusingTimer = 0f;
+
+            _isTargeting = false;
         }
     }
 }

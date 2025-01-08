@@ -47,7 +47,7 @@ namespace HarryPoter.Core
                 return;
             }
             
-            Vector3 teleportPos = _playerSpawner.Player.Head.position;
+            Vector3 teleportPos = _playerSpawner.Player.Head.position + _playerSpawner.Player.Head.forward * _teleportPosForwardMultiplayer;
             _teleportManager.TeleportTo(wand, teleportPos);
         }
 

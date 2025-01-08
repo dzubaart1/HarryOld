@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fadc3c632241989f34ed2153b829c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportPosForwardMultiplayer: 1
+  _teleportPosForwardMultiplayer: 0.5
   _voiceRecognizerManager: {fileID: 265021414}
   _teleportManager: {fileID: 1911276177}
   _playerSpawner: {fileID: 1882532915}
@@ -599,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07ac443d99f46c3a5cd9fe81e464c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstFloorSceneName: FirstFloorScene
-  _secondFloorSceneName: SecondFloorScene
+  _firstFloorSceneName: FirstFloor
+  _secondFloorSceneName: SecondFloor
   _game: {fileID: 1814706649}
   _playerSpawner: {fileID: 1882532915}
 --- !u!1 &1626822894

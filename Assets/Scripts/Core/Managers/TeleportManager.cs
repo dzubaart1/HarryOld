@@ -66,8 +66,7 @@ namespace HarryPoter.Core
             
             _currentObj = obj;
             _currentObj.transform.position = targetPos;
-            _currentObj.transform.rotation = obj.transform.rotation;
-            
+            _currentObj.transform.rotation = Quaternion.LookRotation(Vector3.up);
             
             StartLerp(_currentObj.transform.position);
         }
