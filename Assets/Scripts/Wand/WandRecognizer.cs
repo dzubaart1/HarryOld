@@ -32,6 +32,11 @@ namespace HarryPoter.Core
         {
             targetSpell = null;
             
+            if (points.Count == 0)
+            {
+                return false;
+            }
+            
             Gesture candidate = new Gesture(points.ToArray());
             Result result = PointCloudRecognizer.Classify(candidate, _gestures.ToArray());
 

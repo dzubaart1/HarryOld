@@ -1,10 +1,13 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace HarryPoter.Core
 {
     public class TeleportManager : MonoBehaviour
     {
+        public static TeleportManager Instance { get; private set; }
+        
         [Header("Configs")]
         [SerializeField] private float _lerpOffset = 0.2f;
 
@@ -12,7 +15,7 @@ namespace HarryPoter.Core
         [Header("Refs")]
         [SerializeField] private ParticlesManager _particlesManager;
         
-        [CanBeNull] private GrabInteractable _currentObj;
+        [CanBeNull] private HandGrabInteractableCollector _currentObj;
         [CanBeNull] private ParticleSystem _teleportParticleSystem;
         
         private bool _isLerping;
@@ -20,7 +23,15 @@ namespace HarryPoter.Core
         private Vector3 _topTarget;
         private Vector3 _bottomTarget;
         private Vector3 _currentTarget;
-        
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
+
         private void Update()
         {
             if ((_currentObj == null || _currentObj.IsGrabbed || !_currentObj.gameObject.activeSelf) & _isLerping)
@@ -34,7 +45,7 @@ namespace HarryPoter.Core
             }
         }
 
-        public void TeleportTo(GrabInteractable obj, Vector3 targetPos)
+        public void TeleportTo(HandGrabInteractableCollector obj, Vector3 targetPos)
         {
             if (obj == null)
             {
@@ -46,7 +57,7 @@ namespace HarryPoter.Core
                 return;
             }
 
-            if (_particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.Teleport, out ParticleSystem teleportPS))
+            if (!_particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.Teleport, out ParticleSystem teleportPS))
             {
                 return;
             }

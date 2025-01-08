@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class GrabInteractable : MonoBehaviour
+    public class HandGrabInteractableCollector : MonoBehaviour
     {
         public event Action GrabEvent;
         public event Action UngrabEvent;

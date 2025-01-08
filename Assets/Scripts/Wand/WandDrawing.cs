@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using PDollarGestureRecognizer;
 using UnityEngine;
+using Utils;
 
 public class WandDrawing : MonoBehaviour
 {
@@ -11,9 +12,6 @@ public class WandDrawing : MonoBehaviour
     [Space]
     [Header("Refs")]
     [SerializeField] private Transform _wandEnd;
-    
-    [Space]
-    [Header("Views")]
     [SerializeField] private LineRenderer _lineRenderer;
     
     public bool IsDrawing { get; private set; }
@@ -29,35 +27,30 @@ public class WandDrawing : MonoBehaviour
             return;
         }
 
-        if ((_wandEnd.position - _prevWandEndPos).sqrMagnitude > _sensitive & IsDrawing)
+        if ((_wandEnd.position - _prevWandEndPos).sqrMagnitude > _sensitive)
         {
             AddNewPoint(_wandEnd.position);
         }
     }
-    
-    private void AddNewPoint(Vector3 newPoint)
-    {
-        _lineRenderer.positionCount++;
-        _lineRenderer.SetPosition(_lineRenderer.positionCount-1, newPoint);
-        
-        LastAddedPointTime = Time.time;
-        _prevWandEndPos = newPoint;
-    }
 
     public void StartDrawing(Plane drawingPlane)
     {
-        _plane = drawingPlane;
-        _prevWandEndPos = _wandEnd.position;
+        MakeReset();
         
+        _plane = drawingPlane;
         IsDrawing = true;
     }
 
     public List<Point> FinishDrawing()
     {
+        if (_lineRenderer == null || _lineRenderer.positionCount == 0)
+        {
+            return new List<Point>();
+        }
+        
         List<Point> res = ConvertLineRenderPositionsToPoints(_lineRenderer); 
         
-        MakeReset();
-        
+        IsDrawing = false;
         return res;
     }
 
@@ -66,55 +59,31 @@ public class WandDrawing : MonoBehaviour
         MakeReset();
     }
     
+    private void AddNewPoint(Vector3 newPoint)
+    {
+        _lineRenderer.SetPosition(_lineRenderer.positionCount++, newPoint);
+        
+        LastAddedPointTime = Time.time;
+        _prevWandEndPos = newPoint;
+    }
+    
     private void MakeReset()
     {
         _lineRenderer.positionCount = 0;
-        LastAddedPointTime = 0;
-        _prevWandEndPos = Vector3.zero;
-
-        IsDrawing = false;
+        LastAddedPointTime = Time.time;
+        _prevWandEndPos = _wandEnd.position;
     }
     
     private List<Point> ConvertLineRenderPositionsToPoints(LineRenderer lineRenderer)
     {
         List<Point> res = new List<Point>();
-
-        Vector3 firstPointOnPlane = _plane.ClosestPointOnPlane(lineRenderer.GetPosition(0));
         
-        res.Add(new Point(0,0,0));
-        
-        for(int i = 1; i < lineRenderer.positionCount; i++)
+        for(int i = 0; i < lineRenderer.positionCount; i++)
         {
-            res.Add(Vector3ToPoint(_plane.ClosestPointOnPlane(lineRenderer.GetPosition(i)), firstPointOnPlane));
+            Vector2 point = _plane.ProjectToPlane(lineRenderer.GetPosition(i));
+            res.Add(new Point(point.x, point.y, 0));
         }
         
         return res;
-    }
-
-    private Point Vector3ToPoint(Vector3 vector3, Vector3 firstPoint)
-    {
-        Vector3 temp = vector3 - firstPoint;
-        float[] arr = { temp.x, temp.y, temp.z };
-        Array.Sort(arr, new Comparer());
-            
-        return new Point(arr[0], arr[1], 0);
-    }
-    
-    private class Comparer : IComparer<float>
-    {
-        public int Compare(float x, float y)
-        {
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                return -1;
-            }
-        
-            if(Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                return 1;
-            }
-
-            return 0;
-        }
     }
 }

@@ -16,6 +16,8 @@ namespace HarryPoter.Core
             {
                 Wand = Instantiate(_wandPrefab, Vector3.zero, Quaternion.identity);   
             }
+            
+            Wand.gameObject.SetActive(true);
         }
     }
 }

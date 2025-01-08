@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Snitch : MonoBehaviour
 {
-    [SerializeField] private GrabInteractable _grabInteractable;
+    [Header("Refs")]
     [SerializeField] private QuestHolder _questHolder;
     
     private PlayerMovement _player;
@@ -34,7 +34,7 @@ public class Snitch : MonoBehaviour
             return;
         }
 
-        gameManager.CurrentLocalManager.TeleportGrabInteractableToPlayer(_grabInteractable);
+        //gameManager.CurrentLocalManager.TeleportGrabInteractableToPlayer(_ear);
         
         Destroy(gameObject);
     }

@@ -10,7 +10,6 @@ namespace HarryPoter.Core
 
         [Space]
         [Header("Configs")]
-        [SerializeField] private float _moveOffset = 0.5f;
         [SerializeField] private float _minDistanceToAchieveTarget = 0.5f;
         [SerializeField] private float _moveSpeed = 0.08f;
 

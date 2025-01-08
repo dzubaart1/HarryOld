@@ -24,7 +24,7 @@ namespace HarryPoter.Core
 
         public Game Game => _game;
         [CanBeNull] public static GameManager Instance { get; private set; }
-        [CanBeNull] public BaseLocalManager CurrentLocalManager { get; private set; }
+        [CanBeNull] public BaseLocalManager CurrentLocalManager { get; set; }
 
         private void Awake()
         {
@@ -32,6 +32,12 @@ namespace HarryPoter.Core
             {
                 Instance = this;
             }
+        }
+
+        [CanBeNull]
+        public Player GetPlayer()
+        {
+            return _playerSpawner.Player;
         }
 
         public void LoadScene(string sceneName)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HarryPoter.Core
 {
-    public class TargetSpellFinder : MonoBehaviour
+    public class WandTargetFinder : MonoBehaviour
     {
         [Header("Refs")]
         [SerializeField] private LineRenderer _lineRenderer;
@@ -58,6 +58,7 @@ namespace HarryPoter.Core
                 return;
             }
 
+            _lineRenderer.positionCount = 2;
             _lineRenderer.SetPosition(0, _wandEnd.position);
             _lineRenderer.SetPosition(1, _wandEnd.position + _wandEnd.forward * _lineRendererLength);
             
@@ -104,10 +105,23 @@ namespace HarryPoter.Core
 
         public void FindTarget(LayerMask targetLayerMask, ESpell spell, Action<bool, SpellRecognizer> onTargetFind)
         {
+            MakeReset();
+            
+            _currentSpell = spell;
             _targetLayerMask = targetLayerMask;
             _onTargetFind = onTargetFind;
             
             _isTargeting = true;
+        }
+
+        public void Reset()
+        {
+            MakeReset();
+        }
+
+        private void MakeReset()
+        {
+            _lineRenderer.positionCount = 0;
             _outFocusingTimer = 0f;
             _focusingTimer = 0f;
         }

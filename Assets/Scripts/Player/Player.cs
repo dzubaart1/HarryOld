@@ -15,7 +15,7 @@ namespace HarryPoter.Core
 
         public void MoveForward()
         {
-            Vector3 moveTarget = (_head.forward - transform.position).normalized * _moveOffset;
+            Vector3 moveTarget = (_head.forward * _moveOffset) + transform.position;
             moveTarget.y = 0;
             
             _playerMovement.UpdateMoveTarget(moveTarget);

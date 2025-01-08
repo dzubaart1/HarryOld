@@ -9,11 +9,12 @@ namespace HarryPoter.Core
     public class Wand : MonoBehaviour
     {
         [Header("Refs")]
+        [SerializeField] private WandTargetFinder _wandTargetFinder;
         [SerializeField] private WandSpellGenerator _wandSpellGenerator;
         [SerializeField] private WandDrawing _wandDrawing;
         [SerializeField] private WandRecognizer _wandRecognizer;
         [SerializeField] private WandDebugger _wandDebugger;
-        [SerializeField] private GrabInteractable _grabInteractable;
+        [SerializeField] private HandGrabInteractableCollector handGrabInteractableCollector;
 
         [Space]
         [Header("Configs")]
@@ -22,6 +23,7 @@ namespace HarryPoter.Core
 
         [CanBeNull] private SpellBase _currentSpell;
         
+        private Plane _currentDrawingPlane;
         private float _deactivateTimer;
         private bool _isTimerActive;
 
@@ -41,7 +43,7 @@ namespace HarryPoter.Core
                 return;
             }
             
-            if (_grabInteractable.IsGrabbed & !_wandDrawing.IsDrawing)
+            if (handGrabInteractableCollector.IsGrabbed & !_wandDrawing.IsDrawing)
             {
                 OnStartDrawing();
             }
@@ -55,24 +57,25 @@ namespace HarryPoter.Core
 
         private void OnEnable()
         {
-            _grabInteractable.GrabEvent += OnGrab;
-            _grabInteractable.UngrabEvent += OnUngrab;
+            handGrabInteractableCollector.GrabEvent += OnHandGrab;
+            handGrabInteractableCollector.UngrabEvent += OnUngrab;
         }
 
         private void OnDisable()
         {
-            _grabInteractable.GrabEvent -= OnGrab;
-            _grabInteractable.UngrabEvent -= OnUngrab;
+            handGrabInteractableCollector.GrabEvent -= OnHandGrab;
+            handGrabInteractableCollector.UngrabEvent -= OnUngrab;
         }
         
-        private void OnGrab()
+        private void OnHandGrab()
         {
             _isTimerActive = false;
         }
 
         private void OnUngrab()
         {
-            _wandDebugger.ResetDebugDrawing();
+            _wandTargetFinder.Reset();
+            _wandDebugger.Reset();
             _wandDrawing.Reset();
 
             _isTimerActive = true;
@@ -92,23 +95,25 @@ namespace HarryPoter.Core
                 return;
             }
 
-            Player player = gameManager.CurrentLocalManager.GetPlayer();
+            Player player = gameManager.GetPlayer();
 
             if (player == null)
             {
                 return;
             }
 
-            Vector3 planePoint = player.Head.position + player.Head.forward;
-            planePoint.y = 0;
+            Vector3 headForward = player.Head.forward;
+            headForward.y = 0;
 
-            Plane drawingPlane = new Plane(Vector3.up, planePoint);
+            _currentDrawingPlane = new Plane(headForward, Vector3.zero);
             
-            _wandDrawing.StartDrawing(drawingPlane);
+            _wandDrawing.StartDrawing(_currentDrawingPlane);
         }
 
         private void OnFinishDrawing(List<Point> points)
         {
+            _wandDrawing.Reset();
+            
             GameManager gameManager = GameManager.Instance;
             if (gameManager == null)
             {
@@ -120,7 +125,7 @@ namespace HarryPoter.Core
                 return;
             }
 
-            Player player = gameManager.CurrentLocalManager.GetPlayer();
+            Player player = gameManager.GetPlayer();
 
             if (player == null)
             {
@@ -135,17 +140,13 @@ namespace HarryPoter.Core
 
             if (_wandDebugger.IsOn)
             {
-                Vector3 planePoint = player.Head.position + player.Head.forward;
-                planePoint.y = 0;
-                
-                _wandDebugger.DebugDrawing(points, planePoint);
-                return;
+                _wandDebugger.DebugDrawing(points, _currentDrawingPlane);
             }
             
-            if (!_wandRecognizer.TryRecognizeSpell(points, out SpellBase spell))
+            if (_wandRecognizer.TryRecognizeSpell(points, out SpellBase spell))
             {
-                spell.StartSpell();
                 _currentSpell = spell;
+                spell.StartSpell();
             }
         }
     }

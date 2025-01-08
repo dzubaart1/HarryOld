@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using HarryPoter.Core.Quests;
-using JetBrains.Annotations;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace HarryPoter.Core
@@ -11,36 +8,26 @@ namespace HarryPoter.Core
         public float StartGameTime { get; private set; }
         public float FinishGameTime { get; private set; }
 
-        [CanBeNull]
-        public ItemsList ItemsList
-        {
-            get
-            {
-                return FindObjectOfType<ItemsList>();
-            }
-        }
-        
-        private List<QuestHolder> _questHolders = new List<QuestHolder>();
+        public bool HasCompleteFirstFloor { get; set; } = false;
+        public bool HasCompleteSecondFloor { get; set; } = false;
+
+        public IReadOnlyList<EListItem> CompletedListItems => _completedListItems;
+
+        private List<EListItem> _completedListItems = new List<EListItem>();
         
         public void StartGame()
         {
-            StartGameTime = DateTime.Now.Minute;
+            StartGameTime = Time.time;
         }
 
         public void FinishGame()
         {
-            FinishGameTime = DateTime.Now.Minute;
+            FinishGameTime = Time.time;
         }
-        
-        public void OnQuestHolderComplete(QuestHolder questHolder)
-        {
-            ItemsList itemsList = ItemsList;
-            if (itemsList == null)
-            {
-                return;
-            }
 
-            itemsList.OnQuestHolderComplete(questHolder.ListItem);
+        public void OnTargetItemPickedUp(EListItem listItem)
+        {
+            _completedListItems.Add(listItem);
         }
     }
 }

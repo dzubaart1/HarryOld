@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace HarryPoter.Core.Quests
+﻿namespace HarryPoter.Core.Quests
 {
     public class SpellQuest : Quest
     {

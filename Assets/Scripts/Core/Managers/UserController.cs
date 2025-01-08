@@ -40,9 +40,14 @@ namespace HarryPoter.Core
                 return;
             }
 
-            GrabInteractable wand = _wandSpawner.Wand.GetComponentInChildren<GrabInteractable>();
+            HandGrabInteractableCollector wand = _wandSpawner.Wand.GetComponentInChildren<HandGrabInteractableCollector>();
+
+            if (wand == null)
+            {
+                return;
+            }
             
-            Vector3 teleportPos = _playerSpawner.Player.Head.position + _playerSpawner.Player.Head.forward * _teleportPosForwardMultiplayer;
+            Vector3 teleportPos = _playerSpawner.Player.Head.position;
             _teleportManager.TeleportTo(wand, teleportPos);
         }
 
