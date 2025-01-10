@@ -11,16 +11,6 @@ public class Snitch : MonoBehaviour
 
     private TeleportManager _teleportManager;
 
-    private void OnEnable()
-    {
-        _questHolder.QuestHolderCompleteEvent += OnQuestHolderComplete;
-    }
-
-    private void OnDisable()
-    {
-        _questHolder.QuestHolderCompleteEvent -= OnQuestHolderComplete;
-    }
-
     public void OnQuestHolderComplete()
     {
         GameManager gameManager = GameManager.Instance;

@@ -1,23 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HarryPoter.Core;
 using HarryPoter.Core.LocalManagers.Interfaces;
 using HarryPoter.Core.Quests;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace HarryPoter.Core.LocalManagers
+namespace Core.LocalManagers
 {
-    public class FirstFloorManager : BaseLocalManager
+    public class FinishSceneManager : BaseLocalManager
     {
-        [Header("Configs")]
-        [SerializeField] private float _teleportPosForwardMultiplayer = 1f;
-        
-        [FormerlySerializedAs("_sideQuestHolders")]
-        [Space]
         [SerializeField] private List<QuestHolder> _questHolders = new List<QuestHolder>();
         [SerializeField] private string _sceneNameToTeleportAtTheEnd;
         
-        private void Start()
+        public void Start()
         {
             InitQuestHolders();
         }
@@ -31,28 +26,18 @@ namespace HarryPoter.Core.LocalManagers
             }
 
             Player player = gameManager.GetPlayer();
+
             if (player == null)
             {
                 return;
             }
-            
-            TeleportManager teleportManager = TeleportManager.Instance;
-            if (teleportManager == null)
-            {
-                return;
-            }
-            
-            questHolder.TargetItem.gameObject.SetActive(true);
-            
-            Vector3 teleportPos = player.Head.position + player.Head.forward * _teleportPosForwardMultiplayer;
-            teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, teleportPos);
             
             if (_questHolders.All(questHolder => questHolder.IsComplete))
             {
                 gameManager.LoadScene(_sceneNameToTeleportAtTheEnd);
             }
         }
-        
+
         private void InitQuestHolders()
         {
             foreach (var questHolder in _questHolders)

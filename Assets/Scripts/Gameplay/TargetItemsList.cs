@@ -21,20 +21,23 @@ namespace HarryPoter.Core
 
         private void Update()
         {
-            if (_game == null)
+            GameManager gameManager = GameManager.Instance;
+            if (gameManager == null)
+            {
+                return;
+            }
+
+            Game game = gameManager.Game;
+            
+            if (game == null)
             {
                 return;
             }
 
             foreach (var config in _itemListConfigs)
             {
-                config.RectTransform.gameObject.SetActive(_game.CompletedListItems.Contains(config.ListItemType));
+                config.RectTransform.gameObject.SetActive(game.CompletedListItems.Contains(config.ListItemType));
             }
-        }
-        
-        public void InitTargetItemsList(Game game)
-        {
-            _game = game;
         }
     }
 }

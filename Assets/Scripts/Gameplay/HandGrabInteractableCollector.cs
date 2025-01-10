@@ -10,7 +10,8 @@ namespace HarryPoter.Core
     {
         public event Action GrabEvent;
         public event Action UngrabEvent;
-        
+
+        [SerializeField] private Grabbable _grabbable;
         [SerializeField] private List<HandGrabInteractable> _grabInteractables;
 
         public bool IsGrabbed = false;
@@ -35,10 +36,11 @@ namespace HarryPoter.Core
         {
             foreach (var grabInteractable in _grabInteractables)
             {
+                _grabbable.enabled = isGrabEnabled;
                 grabInteractable.enabled = isGrabEnabled;
             }
         }
-
+        
         private void OnGrabbed(PointerEvent e)
         {
             if (e.Type == PointerEventType.Select)

@@ -9,15 +9,10 @@ namespace HarryPoter.Core.Quests
 {
     public class QuestHolder : MonoBehaviour
     {
-        public static int QuestHolderNextID { get; private set; }
-        
-        public event Action QuestHolderCompleteEvent;
-        
         [SerializeField] private TargetItem _targetItem;
         [SerializeField] private List<Quest> _quests = new List<Quest>();
         
         public bool IsComplete { get; private set; }
-        public int QuestHolderID => _questHolderID;
         public TargetItem TargetItem => _targetItem;
 
         [CanBeNull]
@@ -37,24 +32,7 @@ namespace HarryPoter.Core.Quests
         [CanBeNull] private BaseLocalManager _localManager;
         
         private int _currentQuestID;
-        private int _questHolderID;
-
-        private void Awake()
-        {
-            GameManager gameManager = GameManager.Instance;
-            if (gameManager == null)
-            {
-                return;
-            }
-
-            if (gameManager.CurrentLocalManager == null)
-            {
-                return;
-            }
-            
-            gameManager.CurrentLocalManager.AddQuestHolder(this);
-        }
-
+        
         public bool TryCompleteGrabInteractableQuest()
         {
             Quest currentQuest = CurrentQuest;
@@ -78,10 +56,12 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return false;
+            }
+            else
+            {
+                _currentQuestID++;   
             }
             
-            _currentQuestID++;
             return true;
         }
 
@@ -123,10 +103,12 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return false;
+            }
+            else
+            {
+                _currentQuestID++;   
             }
             
-            _currentQuestID++;
             return true;
         }
 
@@ -158,10 +140,12 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return false;
+            }
+            else
+            {
+                _currentQuestID++;   
             }
             
-            _currentQuestID++;
             return true;
         }
 
@@ -193,20 +177,19 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
-                return false;
+            }
+            else
+            {
+                _currentQuestID++;   
             }
             
-            _currentQuestID++;
             return true;
         }
 
-        public void Init(BaseLocalManager manager, bool hasCompleteQuestHolder)
+        public void Init(BaseLocalManager manager)
         {
             _localManager = manager;
             _currentQuestID = 0;
-            _questHolderID = QuestHolderNextID++;
-
-            IsComplete = hasCompleteQuestHolder;
             
             _targetItem.gameObject.SetActive(false);
         }

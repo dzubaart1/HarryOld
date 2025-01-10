@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &327722621008873009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6489292410570348106}
+  m_Layer: 6
+  m_Name: Recognizers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6489292410570348106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327722621008873009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1000142286141223596}
+  m_Father: {fileID: 2943185577295199809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402794482898257989
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,8 +114,55 @@ Transform:
   - {fileID: 3697972650996060516}
   - {fileID: 6380662379529647894}
   - {fileID: 8754887075812785499}
+  - {fileID: 6489292410570348106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2966255797770253172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000142286141223596}
+  - component: {fileID: 4725790286501623855}
+  m_Layer: 6
+  m_Name: GrabInteractableRecognizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1000142286141223596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966255797770253172}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6489292410570348106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4725790286501623855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966255797770253172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57e65e936c043e9b69d4ad0b7b4a707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questHolder: {fileID: 7500354079390575359}
+  handGrabInteractableCollector: {fileID: 350041875408373250}
 --- !u!1 &3285702326957989508
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +176,6 @@ GameObject:
   - component: {fileID: 8935706911172386050}
   - component: {fileID: 4753160423647702093}
   - component: {fileID: 4542406473264173744}
-  - component: {fileID: 2137757219785491489}
   - component: {fileID: 350041875408373250}
   m_Layer: 6
   m_Name: Cup
@@ -233,20 +311,6 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 1
   _handGrabPoses: []
---- !u!114 &2137757219785491489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3285702326957989508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a8a632f5eb0415993388afdc3ec6003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuestTitle: 
-  GrabInteractable: {fileID: 0}
 --- !u!114 &350041875408373250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grabbable: {fileID: 4753160423647702093}
   _grabInteractables:
   - {fileID: 4542406473264173744}
   IsGrabbed: 0
@@ -717,6 +782,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3269022905956283800, guid: 731256b78b5d11f4a82bd6e1a885bbd3, type: 3}
+      propertyPath: _grabbable
+      value: 
+      objectReference: {fileID: 7603256390036698987}
     - target: {fileID: 3860111540755919879, guid: 731256b78b5d11f4a82bd6e1a885bbd3, type: 3}
       propertyPath: m_Name
       value: Amore
@@ -742,3 +811,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1194494858775148413, guid: 731256b78b5d11f4a82bd6e1a885bbd3, type: 3}
   m_PrefabInstance: {fileID: 2994459724586957677}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7603256390036698987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4614575699173510150, guid: 731256b78b5d11f4a82bd6e1a885bbd3, type: 3}
+  m_PrefabInstance: {fileID: 2994459724586957677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -47,7 +47,7 @@ namespace HarryPoter.Core
                 list = _particlesPool[particle];
             }
 
-            targetPS = list.FirstOrDefault(ps => !ps.isPlaying);
+            targetPS = list.FirstOrDefault(ps => ps != null && !ps.isPlaying);
 
             if (targetPS == null)
             {

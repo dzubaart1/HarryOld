@@ -26,8 +26,6 @@ namespace HarryPoter.Core.LocalManagers.Interfaces
             gameManager.CurrentLocalManager = this;
         }
         
-        public abstract void SaveSceneState();
-        public abstract void AddQuestHolder(QuestHolder questHolder);
         public abstract void OnQuestHolderCompleted(QuestHolder questHolder);
     }
 }

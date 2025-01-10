@@ -8,9 +8,6 @@ namespace HarryPoter.Core
         public float StartGameTime { get; private set; }
         public float FinishGameTime { get; private set; }
 
-        public bool HasCompleteFirstFloor { get; set; } = false;
-        public bool HasCompleteSecondFloor { get; set; } = false;
-
         public IReadOnlyList<EListItem> CompletedListItems => _completedListItems;
 
         private List<EListItem> _completedListItems = new List<EListItem>();
