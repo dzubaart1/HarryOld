@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 1565645887}
-  _sceneName: FirstFloor
+  _sceneName: SecondFloor
 --- !u!4 &18131788
 Transform:
   m_ObjectHideFlags: 0
