@@ -1,7 +1,11 @@
-﻿namespace HarryPoter.Core.Quests
+﻿using Mechaincs;
+
+namespace HarryPoter.Core.Quests
 {
     public class VoiceQuest : Quest
     {
-        public string VoiceText;
+        public VoiceRecognizer VoiceRecognizer;
+        public string Intent;
+        public string Value;
     }
 }

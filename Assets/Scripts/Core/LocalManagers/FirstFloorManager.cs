@@ -11,14 +11,21 @@ namespace HarryPoter.Core.LocalManagers
     {
         [Header("Configs")]
         [SerializeField] private float _teleportPosForwardMultiplayer = 1f;
+        [SerializeField] private bool _loadSceneAtEnd;
+        [SerializeField] private string _sceneToLoadAtEnd;
         
-        [FormerlySerializedAs("_sideQuestHolders")]
         [Space]
         [SerializeField] private List<QuestHolder> _questHolders = new List<QuestHolder>();
-        [SerializeField] private string _sceneNameToTeleportAtTheEnd;
         
         private void Start()
         {
+            GameManager gameManager = GameManager.Instance;
+            if (gameManager == null)
+            {
+                return;
+            }
+            
+            gameManager.Game.StartGame();
             InitQuestHolders();
         }
         
@@ -41,15 +48,17 @@ namespace HarryPoter.Core.LocalManagers
             {
                 return;
             }
-            
-            questHolder.TargetItem.gameObject.SetActive(true);
-            
-            Vector3 teleportPos = player.Head.position + player.Head.forward * _teleportPosForwardMultiplayer;
-            teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, teleportPos);
-            
-            if (_questHolders.All(questHolder => questHolder.IsComplete))
+
+            if (questHolder.HasTargetItem && questHolder.TargetItem != null)
             {
-                gameManager.LoadScene(_sceneNameToTeleportAtTheEnd);
+                questHolder.TargetItem.gameObject.SetActive(true);   
+                Vector3 teleportPos = player.Head.position + player.Head.forward * _teleportPosForwardMultiplayer;
+                teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, teleportPos);
+            }
+            
+            if (_loadSceneAtEnd && _questHolders.All(holder => holder.IsComplete))
+            {
+                gameManager.LoadScene(_sceneToLoadAtEnd);
             }
         }
         

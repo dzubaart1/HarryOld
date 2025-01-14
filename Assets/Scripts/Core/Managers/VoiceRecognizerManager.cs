@@ -1,4 +1,5 @@
-﻿using Meta.WitAi.Json;
+﻿using Mechaincs;
+using Meta.WitAi.Json;
 using Meta.WitAi.Requests;
 using Oculus.Voice;
 using UnityEngine;
@@ -50,19 +51,13 @@ namespace HarryPoter.Core
 
         private void ProcessResponse(WitResponseNode response)
         {
-            string text = response["text"].Value;
-            Debug.Log("Распознанный текст: " + text);
-            
-            var intent = response["intents"][0]["name"].Value;
-            if (intent == "teleport")
+            VoiceRecognizer[] voiceRecognizers = FindObjectsOfType<VoiceRecognizer>();
+            foreach (var voiceRecognizer in voiceRecognizers)
             {
-                // Извлекаем Entity location
-                var location = response["entities"]["location:location"][0]["value"].Value;
-                Debug.Log("Телепортируемся в: " + location);
-            }
-            else
-            {
-                Debug.Log("Не удалось определить Intent teleport");
+                if (voiceRecognizer.gameObject.activeSelf)
+                {
+                    voiceRecognizer.OnVoiceRecognized(response);
+                }
             }
         }
     }

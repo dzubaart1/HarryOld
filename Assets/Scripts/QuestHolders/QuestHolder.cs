@@ -9,11 +9,14 @@ namespace HarryPoter.Core.Quests
 {
     public class QuestHolder : MonoBehaviour
     {
+        [SerializeField] private bool _hasTargetItem;
         [SerializeField] private TargetItem _targetItem;
         [SerializeField] private List<Quest> _quests = new List<Quest>();
         
         public bool IsComplete { get; private set; }
-        public TargetItem TargetItem => _targetItem;
+
+        public bool HasTargetItem => _hasTargetItem;
+        [CanBeNull] public TargetItem TargetItem => _targetItem;
 
         [CanBeNull]
         public Quest CurrentQuest
@@ -149,7 +152,7 @@ namespace HarryPoter.Core.Quests
             return true;
         }
 
-        public bool TryCompleteVoiceQuest(string voiceText)
+        public bool TryCompleteVoiceQuest(VoiceRecognizer voiceRecognizer, string intent, string value)
         {
             Quest currentQuest = CurrentQuest;
             
@@ -163,7 +166,12 @@ namespace HarryPoter.Core.Quests
                 return false;
             }
 
-            if (!voiceQuest.VoiceText.Equals(voiceText))
+            if (voiceQuest.VoiceRecognizer != voiceRecognizer)
+            {
+                return false;
+            }
+
+            if (!voiceQuest.Intent.ToLower().Equals(intent.ToLower()) || !voiceQuest.Value.ToLower().Equals(value.ToLower()))
             {
                 return false;
             }
@@ -190,8 +198,11 @@ namespace HarryPoter.Core.Quests
         {
             _localManager = manager;
             _currentQuestID = 0;
-            
-            _targetItem.gameObject.SetActive(false);
+
+            if (_hasTargetItem && TargetItem != null)
+            {
+                TargetItem.gameObject.SetActive(false);   
+            }
         }
 
         public void LoadState(bool isComplete)

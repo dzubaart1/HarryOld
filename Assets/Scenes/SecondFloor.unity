@@ -1513,9 +1513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b172ada733584384b81bceefe71c7c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teleportPosForwardMultiplayer: 1
+  _loadSceneAtEnd: 1
+  _sceneToLoadAtEnd: FinishScene
   _questHolders:
   - {fileID: 1548913659}
-  _sceneNameToTeleportAtTheEnd: FinishScene
 --- !u!4 &454104837
 Transform:
   m_ObjectHideFlags: 0
@@ -8437,6 +8439,10 @@ PrefabInstance:
     - target: {fileID: 156464164606168269, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: m_Name
       value: Puzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166097163347741480, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
+      propertyPath: _hasTargetItem
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6780474116934643113, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: m_LocalPosition.x

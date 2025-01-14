@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabbable: {fileID: 0}
+  _grabbable: {fileID: 9086897694397193078}
   _grabInteractables:
   - {fileID: 5646086753388646448}
   IsGrabbed: 0
@@ -1428,6 +1428,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7075968272781729994, guid: e42761c6b0889a04bacbef38f9f76123, type: 3}
   m_PrefabInstance: {fileID: 512976401051592944}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9086897694397193078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8720464345970701190, guid: e42761c6b0889a04bacbef38f9f76123, type: 3}
+  m_PrefabInstance: {fileID: 512976401051592944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683521464631613750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1454835952922800226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1533,10 +1544,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabbable: {fileID: 0}
+  _grabbable: {fileID: 8309840124839609469}
   _grabInteractables:
   - {fileID: 2163523864034092560}
   IsGrabbed: 0
+--- !u!114 &8309840124839609469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7449769654470603807, guid: 0af414e445ee7284dae1f97930b39410, type: 3}
+  m_PrefabInstance: {fileID: 1454835952922800226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786124864263762882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2975767815225301278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1736,7 +1758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabbable: {fileID: 0}
+  _grabbable: {fileID: 3654622715142162074}
   _grabInteractables:
   - {fileID: 8785704666631287503}
   IsGrabbed: 0
@@ -1745,6 +1767,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3689992299751276400, guid: 29aa9aba2221a3d41a2c44255790b591, type: 3}
   m_PrefabInstance: {fileID: 3159482444178165257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3654622715142162074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1832806117425399955, guid: 29aa9aba2221a3d41a2c44255790b591, type: 3}
+  m_PrefabInstance: {fileID: 3159482444178165257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157964652913965937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8785704666631287503 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5923829259647728838, guid: 29aa9aba2221a3d41a2c44255790b591, type: 3}
@@ -1968,6 +2001,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6580203651233880359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 46447700672989391, guid: 3af10f20376634f4a90af66353080def, type: 3}
+  m_PrefabInstance: {fileID: 6626087714455900648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560569821069539536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7560569821069539536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3681725245369755960, guid: 3af10f20376634f4a90af66353080def, type: 3}
@@ -1985,7 +2029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabbable: {fileID: 0}
+  _grabbable: {fileID: 6580203651233880359}
   _grabInteractables:
   - {fileID: 3421363092225463177}
   IsGrabbed: 0

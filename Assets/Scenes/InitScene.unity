@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 1565645887}
-  _sceneName: SecondFloor
+  _sceneName: FinishScene
 --- !u!4 &18131788
 Transform:
   m_ObjectHideFlags: 0
@@ -273,7 +273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 769277098}
   - component: {fileID: 769277100}
-  - component: {fileID: 769277099}
   m_Layer: 0
   m_Name: App Voice Experience
   m_TagString: Untagged
@@ -296,42 +295,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 265021413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &769277099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769277097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 591c3d6f017c11b4faa41506d75635b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Voice: {fileID: 769277100}
-  ValidateEarly: 0
-  intent: teleport
-  confidenceThreshold: 0.6
-  valueMatchers:
-  - path: intents[0].name
-    witValueReference: {fileID: 0}
-    contentRequired: 1
-    matchMethod: 0
-    comparisonMethod: 0
-    matchValue: 
-    floatingPointComparisonTolerance: 0.00009999999747378752
-    allowConfidenceOverlap: 0
-    confidenceRanges: []
-  formattedValueEvents: []
-  onMultiValueEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onDidNotMatch:
-    m_PersistentCalls:
-      m_Calls: []
-  onOutOfDomain:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &769277100
 MonoBehaviour:
   m_ObjectHideFlags: 0

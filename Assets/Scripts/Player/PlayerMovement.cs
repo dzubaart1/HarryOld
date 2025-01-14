@@ -7,6 +7,7 @@ namespace HarryPoter.Core
     {
         [Header("Refs")]
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private Transform _moveTarget;
 
         [Space]
         [Header("Configs")]
@@ -17,24 +18,12 @@ namespace HarryPoter.Core
         {
             get
             {
-                if (_moveTarget == null)
-                {
-                    return false;
-                }
-                
                 return Vector3.Distance(transform.position, _moveTarget.position) < _minDistanceToAchieveTarget;
             }
         }
 
         public bool IsPositioning { get; private set; }
-
-        [CanBeNull] private Transform _moveTarget;
         
-        private void Awake()
-        {
-            _moveTarget = new GameObject("MoveTarget").transform;
-            _moveTarget.SetParent(transform);
-        }
 
         public void ChangePositioning(bool isPositioning)
         {
@@ -43,21 +32,12 @@ namespace HarryPoter.Core
 
         public void UpdateMoveTarget(Vector3 moveTarget)
         {
-            if (_moveTarget == null)
-            {
-                return;
-            }
-            
-            _moveTarget.position = moveTarget;
+            _moveTarget.position = new Vector3(moveTarget.x, moveTarget.y, moveTarget.z);
+            _moveTarget.localPosition = new Vector3(_moveTarget.localPosition.x, _moveTarget.localPosition.y, _moveTarget.localPosition.z);
         }
 
         private void FixedUpdate()
         {
-            if (_moveTarget == null)
-            {
-                return;
-            }
-            
             if (IsPositioning)
             {
                 if (!IsReachedPosition)

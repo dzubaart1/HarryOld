@@ -1,15 +1,27 @@
 ﻿using HarryPoter.Core.Quests;
+using Meta.WitAi.Json;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Mechaincs
 {
     public class VoiceRecognizer : MonoBehaviour
     {
+        [SerializeField] private string _targetIntent = "teleport"; 
         [SerializeField] private QuestHolder _questHolder;
 
-        public void OnVoiceRecognized(string text)
+        public void OnVoiceRecognized(WitResponseNode response)
         {
-            _questHolder.TryCompleteVoiceQuest(text);
+            string text = response["text"].Value;
+            Debug.Log("Распознанный текст: " + text);
+            
+            var intent = response["intents"][0]["name"].Value;
+            if (intent == _targetIntent)
+            {
+                var value = response["entities"]["location:location"][0]["value"].Value;
+             
+                _questHolder.TryCompleteVoiceQuest(this, _targetIntent, value);
+            }
         }
     }
 }

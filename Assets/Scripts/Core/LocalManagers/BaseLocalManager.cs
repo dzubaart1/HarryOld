@@ -6,15 +6,6 @@ namespace HarryPoter.Core.LocalManagers.Interfaces
 {
     public abstract class BaseLocalManager : MonoBehaviour
     {
-        [CanBeNull]
-        public TargetItemsList TargetItemsList
-        {
-            get
-            {
-                return FindObjectOfType<TargetItemsList>();
-            }
-        }
-        
         private void Awake()
         {
             GameManager gameManager = GameManager.Instance;
