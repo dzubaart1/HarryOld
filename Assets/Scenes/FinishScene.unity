@@ -53579,6 +53579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResultBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2745711977090097595, guid: d835f7f580ef82e45a135b791c180d7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5090557183541425601, guid: d835f7f580ef82e45a135b791c180d7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.608

@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grabbable: {fileID: 2510925681243912975}
   _grabInteractables:
   - {fileID: 1596388196207283005}
   - {fileID: 747550402233007516}
