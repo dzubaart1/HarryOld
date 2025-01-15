@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b172ada733584384b81bceefe71c7c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportPosForwardMultiplayer: 1
+  _teleportPosForwardMultiplayer: 0.5
   _loadSceneAtEnd: 1
   _sceneToLoadAtEnd: FinishScene
   _questHolders:

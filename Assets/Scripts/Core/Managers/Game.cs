@@ -7,6 +7,7 @@ namespace HarryPoter.Core
     {
         public float StartGameTime { get; private set; }
         public float FinishGameTime { get; private set; }
+        public bool GameFinished { get; private set; }
 
         public IReadOnlyList<EListItem> CompletedListItems => _completedListItems;
 
@@ -15,11 +16,13 @@ namespace HarryPoter.Core
         public void StartGame()
         {
             StartGameTime = Time.time;
+            GameFinished = false;
         }
 
         public void FinishGame()
         {
             FinishGameTime = Time.time;
+            GameFinished = true;
         }
 
         public void OnTargetItemPickedUp(EListItem listItem)

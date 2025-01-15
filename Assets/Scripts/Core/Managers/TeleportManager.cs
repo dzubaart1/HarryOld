@@ -56,13 +56,6 @@ namespace HarryPoter.Core
             {
                 return;
             }
-
-            if (!_particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.Teleport, out ParticleSystem teleportPS))
-            {
-                return;
-            }
-
-            _teleportParticleSystem = teleportPS;
             
             _currentObj = obj;
             _currentObj.transform.position = targetPos;
@@ -73,6 +66,13 @@ namespace HarryPoter.Core
 
         private void StartLerp(Vector3 originPos)
         {
+            if (!_particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.Teleport, out ParticleSystem teleportPS))
+            {
+                return;
+            }
+
+            _teleportParticleSystem = teleportPS;
+            
             _isLerping = true;
             _topTarget = _lerpOffset * Vector3.up +  originPos;
             _bottomTarget = -_lerpOffset * Vector3.up + originPos;
@@ -89,7 +89,7 @@ namespace HarryPoter.Core
         {
             if ((_currentTarget - _currentObj.transform.position).sqrMagnitude < 0.01f)
             {
-                _currentTarget = _currentTarget == _topTarget ? _bottomTarget : _topTarget;
+                ChangeDirection();
             }
             
             _currentObj.transform.position = Vector3.Lerp( _currentObj.transform.position, _currentTarget, Time.deltaTime);
@@ -103,9 +103,13 @@ namespace HarryPoter.Core
             if (_teleportParticleSystem != null)
             {
                 _teleportParticleSystem.Stop();
-
                 _teleportParticleSystem = null;
             }
+        }
+
+        private void ChangeDirection()
+        {
+            _currentTarget = _currentTarget == _topTarget ? _bottomTarget : _topTarget;   
         }
     }
 }

@@ -49568,6 +49568,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7500354079390575359, guid: 37597ba9484e07c469c034cf3399cf08, type: 3}
+      propertyPath: _hasTargetItem
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49903,11 +49907,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teleportPosForwardMultiplayer: 0.5
+  _loadSceneAtEnd: 1
+  _sceneToLoadAtEnd: SecondFloor
   _questHolders:
   - {fileID: 2647138794609380742}
   - {fileID: 1801744794}
   - {fileID: 965827219135973047}
-  _sceneNameToTeleportAtTheEnd: SecondFloor
 --- !u!4 &1818385406
 Transform:
   m_ObjectHideFlags: 0
@@ -59811,6 +59816,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5847578869661927485, guid: 97d60e5bb5e348e42bf24fbf27d885d7, type: 3}
+      propertyPath: _hasTargetItem
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59965,6 +59974,10 @@ PrefabInstance:
       propertyPath: _grabbable
       value: 
       objectReference: {fileID: 2647138794609380743}
+    - target: {fileID: 8483280888402071954, guid: 390da4eb2ecbea94780f357ec5ac3175, type: 3}
+      propertyPath: _hasTargetItem
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

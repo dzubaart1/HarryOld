@@ -51,7 +51,7 @@ namespace Core.LocalManagers
                 teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, teleportPos);
             }
             
-            if (_questHolders.All(holder => holder.IsComplete))
+            if (!gameManager.Game.GameFinished && _questHolders.All(holder => holder.IsComplete))
             {
                 gameManager.Game.FinishGame();
                 OnAllQuestHoldersComplete();
@@ -78,7 +78,7 @@ namespace Core.LocalManagers
                 return;
             }
             
-            ResultsUICntrl resultsUICntrl = Instantiate(_resultsUICntrlPrefab);
+            ResultsUICntrl resultsUICntrl = Instantiate(_resultsUICntrlPrefab, Vector3.zero,Quaternion.identity);
             resultsUICntrl.SetGameTime(gameManager.Game.FinishGameTime - gameManager.Game.StartGameTime);
             
             Vector3 teleportPos = player.Head.position + player.Head.forward * _teleportPosForwardMultiplayer;

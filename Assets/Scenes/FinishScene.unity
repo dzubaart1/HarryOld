@@ -50229,7 +50229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resultsUICntrlPrefab: {fileID: 7313917566201626491, guid: be79158a4ed95174094afc1c68fc813c, type: 3}
-  _teleportPosForwardMultiplayer: 1
+  _teleportPosForwardMultiplayer: 0.5
   _questHolders:
   - {fileID: 1133572774}
 --- !u!1001 &1820304686
