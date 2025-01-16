@@ -13,7 +13,7 @@ namespace Mechaincs
         
         public void OnActivateSpell(ESpell spell)
         {
-            _questHolder.TryCompleteSpellQuest(spell);
+            _questHolder.TryCompleteSpellQuest(this, spell);
             OnSpellQuestComplete?.Invoke(spell);
         }
     }

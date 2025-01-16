@@ -10,6 +10,8 @@ namespace HarryPoter.Core
     {
         [SerializeField] private AppVoiceExperience _voiceExperience;
 
+        private bool _isBusy;
+
         private void OnEnable()
         {
             _voiceExperience.VoiceEvents.OnSend.AddListener(OnVoiceRequestStarted);
@@ -24,13 +26,18 @@ namespace HarryPoter.Core
             _voiceExperience.VoiceEvents.OnError.RemoveListener(OnVoiceError);
         }
 
-        public void StartVoiceRecognition()
+        public bool TryStartVoiceRecognition()
         {
-            if (!_voiceExperience.Active)
+            if (_isBusy)
             {
-                Debug.Log("Начало распознавания голоса...");
-                _voiceExperience.Activate(); // Начало прослушивания   
+                return false;
             }
+            
+            Debug.Log("Начало распознавания голоса...");
+            _voiceExperience.Activate(); // Начало прослушивания   
+            _isBusy = true;
+
+            return true;
         }
 
         private void OnVoiceRequestStarted(VoiceServiceRequest request)
@@ -42,11 +49,13 @@ namespace HarryPoter.Core
         {
             Debug.Log("Ответ Wit.ai: " + response.ToString());
             ProcessResponse(response);
+            _isBusy = false;
         }
 
         private void OnVoiceError(string error, string message)
         {
             Debug.LogError($"Ошибка: {error} - {message}");
+            _isBusy = false;
         }
 
         private void ProcessResponse(WitResponseNode response)

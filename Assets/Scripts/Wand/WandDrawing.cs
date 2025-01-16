@@ -73,6 +73,7 @@ public class WandDrawing : MonoBehaviour
         _lineRenderer.positionCount = 0;
         LastAddedPointTime = Time.time;
         _prevWandEndPos = _wandEnd.position;
+        IsDrawing = false;
     }
     
     private List<Point> ConvertLineRenderPositionsToPoints(LineRenderer lineRenderer)

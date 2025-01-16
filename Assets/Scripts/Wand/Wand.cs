@@ -66,6 +66,8 @@ namespace HarryPoter.Core
 
         private void OnDisable()
         {
+            MakeReset();
+            
             handGrabInteractableCollector.GrabEvent -= OnHandGrab;
             handGrabInteractableCollector.UngrabEvent -= OnUngrab;
         }

@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 1832806117425399955}
   - component: {fileID: 5923829259647728838}
   - component: {fileID: 6616182705888203874}
+  - component: {fileID: 7030364006541784478}
   m_Layer: 10
   m_Name: Pawn4
-  m_TagString: Replaceable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,11 +163,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0005
+  m_Radius: 0.001
   m_Center: {x: 0, y: -0.0001, z: 0}
 --- !u!114 &1832806117425399955
 MonoBehaviour:
@@ -243,6 +244,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e611f873c6914315b9ab07515ca47d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _puzzleItemType: 3
-  _grabInteractable: {fileID: 0}
-  _collider: {fileID: 4270289853384564264}
+--- !u!114 &7030364006541784478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020095146169709944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grabbable: {fileID: 1832806117425399955}
+  _grabInteractables:
+  - {fileID: 5923829259647728838}
+  IsGrabbed: 0

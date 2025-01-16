@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5279512533190998208}
   - component: {fileID: 8720464345970701190}
   - component: {fileID: 7568054311096725754}
+  - component: {fileID: 3780545580049141092}
   m_Layer: 10
   m_Name: Pawn1
-  m_TagString: Replaceable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +57,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0005
+  m_Radius: 0.001
   m_Center: {x: 0, y: -0.0001, z: 0}
 --- !u!54 &3898560072835998686
 Rigidbody:
@@ -80,7 +81,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -160,9 +161,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e611f873c6914315b9ab07515ca47d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _puzzleItemType: 0
-  _grabInteractable: {fileID: 0}
-  _collider: {fileID: 7724439212791741365}
+--- !u!114 &3780545580049141092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619963857341673926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grabbable: {fileID: 8720464345970701190}
+  _grabInteractables:
+  - {fileID: 5279512533190998208}
+  IsGrabbed: 0
 --- !u!1 &9091821737136244429
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ namespace HarryPoter.Core
 
         public void StartVoiceRecording()
         {
-            _voiceRecognizerManager.StartVoiceRecognition();
+            _voiceRecognizerManager.TryStartVoiceRecognition();
         }
     }
 }

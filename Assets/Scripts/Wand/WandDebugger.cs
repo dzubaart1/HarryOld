@@ -66,6 +66,7 @@ namespace HarryPoter.Core
 
         private void MakeReset()
         {
+            _isOn = false;
             _lineRenderer.positionCount = 0;
         }
     }

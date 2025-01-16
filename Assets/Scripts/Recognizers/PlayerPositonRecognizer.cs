@@ -8,6 +8,7 @@ namespace Mechaincs
     [RequireComponent(typeof(Collider))]
     public class PlayerPositionRecognizer : MonoBehaviour
     {
+        [SerializeField] private MeshRenderer _meshRenderer;
         [SerializeField] private QuestHolder _questHolder;
 
         private void OnTriggerEnter(Collider other)
@@ -23,6 +24,8 @@ namespace Mechaincs
             {
                 return;
             }
+
+            _meshRenderer.enabled = false;
         }
 
         private void OnTriggerStay(Collider other)
@@ -38,6 +41,8 @@ namespace Mechaincs
             {
                 return;
             }
+
+            _meshRenderer.enabled = false;
         }
     }
 }

@@ -255,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6801202084151144881
 Transform:
   m_ObjectHideFlags: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grabbable: {fileID: 0}
   _grabInteractables:
   - {fileID: 9211930483799863814}
   - {fileID: 1195560040704796227}
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabInteractable: {fileID: 6471662592065786853}
   _disappearDelay: 3
-  _listItem: 0
+  _listItem: 1
 --- !u!54 &7517519783693151619
 Rigidbody:
   m_ObjectHideFlags: 0

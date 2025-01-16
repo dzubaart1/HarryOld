@@ -1,3 +1,4 @@
+using System;
 using HarryPoter.Core;
 using HarryPoter.Core.Quests;
 using UnityEngine;
@@ -11,21 +12,18 @@ public class Snitch : MonoBehaviour
 
     private TeleportManager _teleportManager;
 
-    public void OnQuestHolderComplete()
+    private void OnEnable()
     {
-        GameManager gameManager = GameManager.Instance;
-        if (gameManager == null)
-        {
-            return;
-        }
+        _questHolder.QuestHolderCompletedEvent += OnQuestHolderCompleted;
+    }
 
-        if (gameManager.CurrentLocalManager == null)
-        {
-            return;
-        }
+    private void OnDisable()
+    {
+        _questHolder.QuestHolderCompletedEvent -= OnQuestHolderCompleted;
+    }
 
-        //gameManager.CurrentLocalManager.TeleportGrabInteractableToPlayer(_ear);
-        
-        Destroy(gameObject);
+    public void OnQuestHolderCompleted()
+    {
+        gameObject.SetActive(false);
     }
 }

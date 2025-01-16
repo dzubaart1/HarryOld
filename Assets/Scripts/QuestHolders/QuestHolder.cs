@@ -9,6 +9,8 @@ namespace HarryPoter.Core.Quests
 {
     public class QuestHolder : MonoBehaviour
     {
+        public event Action QuestHolderCompletedEvent; 
+        
         [SerializeField] private bool _hasTargetItem;
         [SerializeField] private TargetItem _targetItem;
         [SerializeField] private List<Quest> _quests = new List<Quest>();
@@ -59,6 +61,7 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
+                QuestHolderCompletedEvent?.Invoke();
             }
             else
             {
@@ -106,6 +109,7 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
+                QuestHolderCompletedEvent?.Invoke();
             }
             else
             {
@@ -142,6 +146,7 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
+                QuestHolderCompletedEvent?.Invoke();
             }
             else
             {
@@ -151,7 +156,7 @@ namespace HarryPoter.Core.Quests
             return true;
         }
 
-        public bool TryCompleteSpellQuest(ESpell spellType)
+        public bool TryCompleteSpellQuest(SpellRecognizer spellRecognizer, ESpell spellType)
         {
             Quest currentQuest = CurrentQuest;
             
@@ -161,6 +166,11 @@ namespace HarryPoter.Core.Quests
             }
 
             if (currentQuest is not SpellQuest spellQuest)
+            {
+                return false;
+            }
+
+            if (spellQuest.SpellRecognizer != spellRecognizer)
             {
                 return false;
             }
@@ -179,6 +189,7 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
+                QuestHolderCompletedEvent?.Invoke();
             }
             else
             {
@@ -221,6 +232,7 @@ namespace HarryPoter.Core.Quests
             {
                 IsComplete = true;
                 _localManager.OnQuestHolderCompleted(this);
+                QuestHolderCompletedEvent?.Invoke();
             }
             else
             {
