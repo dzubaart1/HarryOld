@@ -115,6 +115,42 @@ namespace HarryPoter.Core.Quests
             return true;
         }
 
+        public bool TryCompletePlayerPositionQuest(PlayerPositionRecognizer playerPositionRecognizer)
+        {
+            Quest currentQuest = CurrentQuest;
+            if (currentQuest == null)
+            {
+                return false;
+            }
+
+            if (currentQuest is not PlayerPositionQuest playerPositionQuest)
+            {
+                return false;
+            }
+
+            if (playerPositionQuest.PositionRecognizer != playerPositionRecognizer)
+            {
+                return false;
+            }
+            
+            if (_localManager == null)
+            {
+                return false;
+            }
+
+            if (_currentQuestID + 1 == _quests.Count & !IsComplete)
+            {
+                IsComplete = true;
+                _localManager.OnQuestHolderCompleted(this);
+            }
+            else
+            {
+                _currentQuestID++;   
+            }
+            
+            return true;
+        }
+
         public bool TryCompleteSpellQuest(ESpell spellType)
         {
             Quest currentQuest = CurrentQuest;
