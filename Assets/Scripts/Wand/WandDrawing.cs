@@ -8,9 +8,10 @@ public class WandDrawing : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private float _sensitive = 0.0001f;
-    
+
     [Space]
     [Header("Refs")]
+    [SerializeField] private AudioSource _drawingSound;
     [SerializeField] private Transform _wandEnd;
     [SerializeField] private LineRenderer _lineRenderer;
     
@@ -39,6 +40,7 @@ public class WandDrawing : MonoBehaviour
         
         _plane = drawingPlane;
         IsDrawing = true;
+        _drawingSound.Play();
     }
 
     public List<Point> FinishDrawing()
@@ -51,6 +53,7 @@ public class WandDrawing : MonoBehaviour
         List<Point> res = ConvertLineRenderPositionsToPoints(_lineRenderer); 
         
         IsDrawing = false;
+        _drawingSound.Stop();
         return res;
     }
 

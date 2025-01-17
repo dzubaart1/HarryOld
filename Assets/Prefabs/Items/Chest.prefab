@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387c4bc9ec7c496cb12fee42f4172835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasTargetItem: 1
   _targetItem: {fileID: 5950790005804997019}
   _quests:
   - {fileID: 3629205330466701404}
@@ -732,6 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e03cd33064e80877fd94bb0aad2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grabbable: {fileID: 7676987037829964247}
   _grabInteractables:
   - {fileID: 2653541893881806465}
   IsGrabbed: 0
@@ -865,6 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestTitle: "\u041F\u0440\u0438\u043C\u0435\u043D\u0438 \u0437\u0430\u043A\u043B\u0438\u043D\u0430\u043D\u0438\u0435
     \u043D\u0430 \u043E\u0442\u043A\u0440\u044B\u0442\u0438\u0435"
+  SpellRecognizer: {fileID: 5712576682946479924}
   SpellType: 1
 --- !u!1 &7970835964447724784
 GameObject:
@@ -890,9 +893,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7970835964447724784}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.6324742, y: -0.9998524, z: 3.3605587}
-  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1604575809086862355}
@@ -978,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d5b28ea9f346e8bd9b5e149d3b328c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _psSpawnPoint: {fileID: 1604575809086862355}
   _questHolder: {fileID: 8483280888402071954}
 --- !u!1 &8263706922348888883
 GameObject:

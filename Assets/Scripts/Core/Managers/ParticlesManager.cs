@@ -10,10 +10,12 @@ namespace HarryPoter.Core
     {
         public enum EParticle
         {
-            Disappear,
-            QuestComplete,
-            ApplySpell,
-            Teleport
+            ApplySpellEffect,
+            TeleportEffect,
+            OpenSpellEffect,
+            AttackWandSpellEffect,
+            DisapearItemEffect,
+            AttackTargetSpellEffect,
         }
 
         [Serializable]
@@ -22,12 +24,22 @@ namespace HarryPoter.Core
             public EParticle Type;
             public ParticleSystem ParticleSystem;
         }
+        
+        [CanBeNull] public static ParticlesManager Instance { get; private set; }
 
         [SerializeField] private ParticlesSystemConfig[] _particlesSystemConfigs;
 
         [CanBeNull] private Transform _root;
 
         private Dictionary<EParticle, List<ParticleSystem>> _particlesPool = new Dictionary<EParticle, List<ParticleSystem>>();
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
 
         public bool TryGetParticlesSystem(EParticle particle, out ParticleSystem targetPS)
         {

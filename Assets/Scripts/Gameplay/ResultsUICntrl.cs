@@ -13,7 +13,7 @@ namespace HarryPoter.Core
 
         public void SetGameTime(float gameTime)
         {
-            _gameTimeText.text = gameTime.ToString(CultureInfo.CurrentCulture);
+            _gameTimeText.text = gameTime.ToString(CultureInfo.CurrentCulture) + " сек";
         }
     }
 }

@@ -6,6 +6,8 @@ namespace HarryPoter.Core.Spells
 {
     public class OpenSpell : SpellBase
     {
+        [SerializeField] private AudioSource _activateSpellSound;
+        [SerializeField] private Transform _wandEnd;
         [SerializeField] private LayerMask _layerMask;
         [FormerlySerializedAs("_targetSpellFinder")] [SerializeField] private WandTargetFinder wandTargetFinder;
         
@@ -20,11 +22,29 @@ namespace HarryPoter.Core.Spells
             IsSpelling = false;
             wandTargetFinder.Reset();
 
-            Debug.Log($"FIND TARGET {status}");
             if (status)
             {
                 target.OnActivateSpell(ESpell.Open);
+                _activateSpellSound.Play();
+                ActivateEffect();
             }
+        }
+        
+        private void ActivateEffect()
+        {
+            ParticlesManager particlesManager = ParticlesManager.Instance;
+            if (particlesManager == null)
+            {
+                return;
+            }
+            
+            if (!particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.ApplySpellEffect, out ParticleSystem particleSystem))
+            {
+                return;
+            }
+
+            particleSystem.transform.position = _wandEnd.position;
+            particleSystem.Play();
         }
     }
 }

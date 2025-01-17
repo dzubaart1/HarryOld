@@ -15,10 +15,32 @@ namespace HarryPoter.Core.LocalManagers
         
         [Space]
         [SerializeField] private List<QuestHolder> _questHolders = new List<QuestHolder>();
+
+        private bool _isCompleteFloor;
         
         private void Start()
         {
             InitQuestHolders();
+        }
+        
+        private void Update()
+        {
+            if (_isCompleteFloor)
+            {
+                return;
+            }
+            
+            GameManager gameManager = GameManager.Instance;
+            if (gameManager == null)
+            {
+                return;
+            }
+            
+            if (_loadSceneAtEnd && _questHolders.All(holder => holder.IsComplete && (holder.TargetItem == null || holder.TargetItem.IsCollected)))
+            {
+                gameManager.LoadScene(_sceneToLoadAtEnd);
+                _isCompleteFloor = true;
+            }
         }
         
         public override void OnQuestHolderCompleted(QuestHolder questHolder)
@@ -46,11 +68,6 @@ namespace HarryPoter.Core.LocalManagers
                 questHolder.TargetItem.gameObject.SetActive(true);   
                 Vector3 teleportPos = player.Head.position + player.Head.forward * _teleportPosForwardMultiplayer;
                 teleportManager.TeleportTo(questHolder.TargetItem.HandGrabInteractableCollector, teleportPos);
-            }
-            
-            if (_loadSceneAtEnd && _questHolders.All(holder => holder.IsComplete))
-            {
-                gameManager.LoadScene(_sceneToLoadAtEnd);
             }
         }
         

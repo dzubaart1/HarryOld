@@ -66,7 +66,7 @@ namespace HarryPoter.Core
 
         private void StartLerp(Vector3 originPos)
         {
-            if (!_particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.Teleport, out ParticleSystem teleportPS))
+            if (!_particlesManager.TryGetParticlesSystem(ParticlesManager.EParticle.TeleportEffect, out ParticleSystem teleportPS))
             {
                 return;
             }

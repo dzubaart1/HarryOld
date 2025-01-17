@@ -1669,6 +1669,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8530098495495809141, guid: 0dbeced444d761e4cacc31f8c9c8b602, type: 3}
+      propertyPath: _listItem
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530098495495809141, guid: 0dbeced444d761e4cacc31f8c9c8b602, type: 3}
       propertyPath: _grabInteractable
       value: 
       objectReference: {fileID: 4365078036024150301}
