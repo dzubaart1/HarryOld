@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using HarryPoter.Core.Spells;
 using JetBrains.Annotations;
 using PDollarGestureRecognizer;
@@ -36,6 +35,7 @@ namespace HarryPoter.Core
                 if (_deactivateTimer < 0)
                 {
                     gameObject.SetActive(false);
+                    return;
                 }   
             }
             
@@ -158,9 +158,8 @@ namespace HarryPoter.Core
             _wandTargetFinder.Reset();
             _wandDebugger.Reset();
             _wandDrawing.Reset();
-            
-            _isDeactivateTimerActive = true;
-            _deactivateTimer = _deactivateDelay;
+
+            _currentSpell = null;
         }
     }
 }
