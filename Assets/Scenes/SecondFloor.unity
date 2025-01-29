@@ -9082,8 +9082,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 182288129230090940, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: QuestTitle
-      value: "\u041F\u0430\u0437\u043B \u0441\u043E\u0431\u0435\u0440\u0438 \u0438
-        \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u043F\u043E\u043B\u0443\u0447\u0438!"
+      value: "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0430\u044F \u0447\u0430\u0441\u0442\u044C
+        - \u0437\u0435\u043B\u0435\u043D\u0430\u044F!"
       objectReference: {fileID: 0}
     - target: {fileID: 2809007338359316343, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: m_LocalScale.x
@@ -9135,8 +9135,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4467830320637590121, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: QuestTitle
-      value: "\u041F\u0430\u0437\u043B \u0441\u043E\u0431\u0435\u0440\u0438 \u0438
-        \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u043F\u043E\u043B\u0443\u0447\u0438!"
+      value: "\u041D\u0430 \u0444\u0438\u043D\u0438\u0448\u043D\u043E\u0439 \u043F\u0440\u044F\u043C\u043E\u0439!
+        \u041D\u0430\u0439\u0434\u0438 \u0438 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0438
+        \u043A\u0440\u0430\u0441\u043D\u0443\u044E \u0447\u0430\u0441\u0442\u044C"
       objectReference: {fileID: 0}
     - target: {fileID: 6572996109271399323, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: m_Material
@@ -9193,12 +9194,15 @@ PrefabInstance:
     - target: {fileID: 8660401213772659691, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: QuestTitle
       value: "\u041F\u0430\u0437\u043B \u0441\u043E\u0431\u0435\u0440\u0438 \u0438
-        \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u043F\u043E\u043B\u0443\u0447\u0438!"
+        \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u043F\u043E\u043B\u0443\u0447\u0438!
+        \u041D\u0430\u0447\u043D\u0435\u043C \u0441 \u0436\u0435\u043B\u0442\u043E\u0439
+        \u0447\u0430\u0441\u0442\u0438"
       objectReference: {fileID: 0}
     - target: {fileID: 8988748734253929034, guid: f23014e5b7c29c547a95975470ec0d9f, type: 3}
       propertyPath: QuestTitle
-      value: "\u041F\u0430\u0437\u043B \u0441\u043E\u0431\u0435\u0440\u0438 \u0438
-        \u043F\u043E\u0434\u0430\u0440\u043E\u043A \u043F\u043E\u043B\u0443\u0447\u0438!"
+      value: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439 \u0432 \u0442\u043E\u043C
+        \u0434\u0443\u0445\u0435! \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438
+        \u043A\u0440\u0430\u0441\u043D\u0443\u044E \u0447\u0430\u0441\u0442\u044C"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

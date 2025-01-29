@@ -49754,6 +49754,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1793186757}
     m_Modifications:
+    - target: {fileID: 435316036948661053, guid: 52fd146007368934897b4ea487472a5c, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 435316036948661053, guid: 52fd146007368934897b4ea487472a5c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921914595725861364, guid: 52fd146007368934897b4ea487472a5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4701502220805556594, guid: 52fd146007368934897b4ea487472a5c, type: 3}
       propertyPath: m_Name
       value: QuestHolderUI
@@ -49788,7 +49800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8592598184946757972, guid: 52fd146007368934897b4ea487472a5c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 146.08
       objectReference: {fileID: 0}
     - target: {fileID: 8592598184946757972, guid: 52fd146007368934897b4ea487472a5c, type: 3}
       propertyPath: m_SizeDelta.y
